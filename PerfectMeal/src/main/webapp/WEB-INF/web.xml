@@ -9,4 +9,18 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  
+  
+  <servlet>
+  	<servlet-name>CreateUserServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.CreateUserServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>CreateUserServlet</servlet-name>
+  	<url-pattern>/sign-up</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
