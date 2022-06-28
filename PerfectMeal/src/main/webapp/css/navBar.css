@@ -1,0 +1,76 @@
+﻿
+
+
+/* navigation bar css styles */
+
+/* Add a black background color to the top navigation */
+#topnav {
+  position: relative;
+  background-color: #333;
+  overflow: hidden;
+  padding: .5%;
+}
+
+/* Style the links inside the navigation bar */
+#topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+#topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+#topnav a.active {
+  background-color: #3bb8ff;
+  color: white;
+}
+
+/* Centered section inside the top navigation */
+#topnav-centered  {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the navigation bar the <lable> and <input> */
+#topnav-login  {
+
+  float: right;  
+  color:lightGray;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+
+}
+
+#cornerTitle {
+    
+    color:white;
+    font-size:14px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: cursive;
+
+}
+
+input{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+label{
+  
+  display: inline-block;
+  
+}
+
+
+/* navigation bar css styles end*/
