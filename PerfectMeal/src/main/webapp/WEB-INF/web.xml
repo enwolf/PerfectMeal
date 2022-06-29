@@ -19,7 +19,7 @@
   
   <servlet-mapping>
   	<servlet-name>CreateUserServlet</servlet-name>
-  	<url-pattern>/sign-up</url-pattern>
+  	<url-pattern>/signup</url-pattern>
   </servlet-mapping>
   
   
