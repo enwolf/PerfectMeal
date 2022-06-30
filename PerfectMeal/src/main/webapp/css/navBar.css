@@ -1,6 +1,10 @@
 ﻿
 
+* {
+	margin: 0;
+	padding: 0;
 
+}
 /* navigation bar css styles */
 
 /* Add a black background color to the top navigation */
@@ -27,10 +31,14 @@
   color: black;
 }
 
-/* Add a color to the active/current link */
-#topnav a.active {
+/* Add a color to the active/current link 
+ #topnav a.active {
   background-color: #3bb8ff;
   color: white;
+}
+*/
+#topnav button {
+  padding: 5px;
 }
 
 /* Centered section inside the top navigation */
@@ -54,7 +62,7 @@
 #cornerTitle {
     
     color:white;
-    font-size:14px;
+    font-size:24px;
     font-style: italic;
     font-weight: bold;
     font-family: cursive;
