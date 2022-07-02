@@ -10,7 +10,8 @@ CREATE TABLE USER (
 					LastName 	CHAR(100), 
                     Username 	VARCHAR(100),
                     Password 	VARCHAR(100),
-                    Email		VARCHAR(100)
+                    Email		VARCHAR(100),
+                    isVerified 	BOOLEAN DEFAULT FALSE
 				    );
 
 CREATE TABLE MEAL (
@@ -29,9 +30,5 @@ CREATE TABLE INGREDIENT (
 CREATE TABLE MEAL_INGREDIENT (
 					Meal_IngredientID	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     MealID				INT,
-                    CONSTRAINT MEAL_FK FOREIGN KEY ( MealID )
-										REFERENCES MEAL ( MealID ),
-                    IngredientID		INT,
-                    CONSTRAINT INGREDIENT_FK FOREIGN KEY ( IngredientID )
-										REFERENCES INGREDIENT ( IngredientID )
+                    IngredientID		INT
 					);

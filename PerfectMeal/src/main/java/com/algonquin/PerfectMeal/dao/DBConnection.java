@@ -40,9 +40,9 @@ public class DBConnection {
 	public static Connection getConnectionToDatabase() throws SQLException, ClassNotFoundException {
 		Connection connection = null;
 		Class.forName("com.mysql.jdbc.Driver");
+
 		try {
 			connection = DriverManager.getConnection(CONN_STRING, DBUSER, DBPASSWORD);
-			System.out.println("Connected");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

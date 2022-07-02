@@ -13,13 +13,24 @@
   
   
   <servlet>
-  	<servlet-name>CreateUserServlet</servlet-name>
-  	<servlet-class>com.algonquin.PerfectMeal.servlets.CreateUserServlet</servlet-class>
+  	<servlet-name>RegisterUserServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.RegisterUserServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>CreateUserServlet</servlet-name>
+  	<servlet-name>RegisterUserServlet</servlet-name>
   	<url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>UserAuthenticationServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UserAuthenticationServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UserAuthenticationServlet</servlet-name>
+  	<url-pattern>/verify-email</url-pattern>
   </servlet-mapping>
   
   

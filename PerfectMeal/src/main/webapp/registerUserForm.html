@@ -37,12 +37,10 @@
         <!-- Navigation Bar End-->
 
 <div id="wrapper">
-
-
     <div id="wrapper2">
         <div id="banner">
             <img src="img/foodBanner.jpg" alt="food"  > 
-        <div id="textOverly">Registar Now!</div>
+        <div id="textOverly">Register Now!</div>
     </div>
 
     <div id="header">
@@ -54,9 +52,9 @@
         <h2>Please enter your information below to create your account</h2>
     
     <div id="formData">
-        <form onsubmit="" method="GET" >
+        <form onsubmit="" method="post" >
             <fieldset>
-                <legend>Field Set Lenged</legend>
+                <legend>Sign Up</legend>
                 <table id="contactTable">
                     <tbody>
                         <tr>
@@ -68,16 +66,16 @@
                             <td><input type="text" id="lastName" ></td>                            
                         </tr>
                          <tr>
-                            <td><label>Email Address</label></td>
+                            <td><label>Email Address: </label></td>
                             <td><input type="text" id="emailAddress"></td>
                         </tr>
                         <tr>
                             <td><label>Password: </label></td>
-                            <td><input type="text" id="password" ></td>
+                            <td><input type="text" id="password" required></td>
                         </tr>
                         <tr>
                             <td><label>Confirm Password: </label></td>
-                            <td><input type="text" id="confirmPassword" ></td>
+                            <td><input type="text" id="confirmPassword" required ></td>
                         </tr>
                         <tr>
                         <td ><button class="formButton">Submit</button></td>

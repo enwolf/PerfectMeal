@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -63,7 +63,7 @@
                     <h2>Sign up today!!</h2>
                 </div>
             
-                <form action="registerUserForm.html" method="get">
+                <form action="registerUserForm.jsp" method="get">
                     <button id="newUserCallToAction" > Click Here - Join Now!</button>
                 </form>
                     

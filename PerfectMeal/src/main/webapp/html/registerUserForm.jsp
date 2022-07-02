@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,6 +9,9 @@
   <title>Registration Form</title>
 </head>
 <body>
+
+
+<!--	// % String userResponse = (String) (request.getAttribute("userMessage") == null ? "" : request.getAttribute("userMessage")); %> -->
         <!-- Navigation Bar -->
         <div id="topnav">
         <span id="cornerTitle">Perfect Meal</span>
@@ -37,12 +40,10 @@
         <!-- Navigation Bar End-->
 
 <div id="wrapper">
-
-
     <div id="wrapper2">
         <div id="banner">
             <img src="img/foodBanner.jpg" alt="food"  > 
-        <div id="textOverly">Registar Now!</div>
+        <div id="textOverly">Register Now!</div>
     </div>
 
     <div id="header">
@@ -54,42 +55,43 @@
         <h2>Please enter your information below to create your account</h2>
     
     <div id="formData">
-        <form onsubmit="" method="GET" >
+        <form action="signup" method="post" >
             <fieldset>
-                <legend>Field Set Lenged</legend>
+                <legend>Sign Up</legend>
                 <table id="contactTable">
                     <tbody>
                         <tr>
                             <td><label>First Name: </label></td>
-                            <td><input type="text" id="firstName"></td>
+                            <td><input type="text" id="firstName" name="firstName" required></td>
                         </tr>
                         <tr>
                             <td><label>Last Name: </label></td>
-                            <td><input type="text" id="lastName" ></td>                            
+                            <td><input type="text" id="lastName" name="lastName"required></td>                            
                         </tr>
                          <tr>
-                            <td><label>Email Address</label></td>
-                            <td><input type="text" id="emailAddress"></td>
+                            <td><label>Email Address: </label></td>
+                            <td><input type="text" id="emailAddress" name="emailAddress" required></td>
                         </tr>
                         <tr>
                             <td><label>Password: </label></td>
-                            <td><input type="text" id="password" ></td>
+                            <td><input type="password" id="password" name="password" required></td>
+                            
                         </tr>
                         <tr>
                             <td><label>Confirm Password: </label></td>
-                            <td><input type="text" id="confirmPassword" ></td>
+                            <td><input type="password" id="confirmPassword" name="confirmPassword" required ></td>
                         </tr>
                         <tr>
-                        <td ><button class="formButton">Submit</button></td>
-                        <td><button class="formButton">Reset</button></td>
+                        	<td ><input type="submit" class="formButton">Submit</td>
+                        	<td><input type="reset" class="formButton">Reset</td>
                         </tr>
                     </tbody>
-                    
                 </table>
              </fieldset>
         </form>
+        
     </div>
-
+</div>
 
 
 

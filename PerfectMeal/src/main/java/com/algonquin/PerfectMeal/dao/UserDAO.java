@@ -2,6 +2,7 @@ package com.algonquin.PerfectMeal.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.algonquin.PerfectMeal.beans.User;
@@ -30,6 +31,29 @@ public class UserDAO {
 		}
 
 		return rowsAffected;
+	}
+
+	public boolean userExists(String emailAddress) throws ClassNotFoundException {
+		// returns true if email address exists in User Table
+		int rowsAffected = 0;
+
+		try {
+			Connection connection = DBConnection.getConnectionToDatabase();
+			String findUser = "select count(*) as total from user where Email = ?";
+
+			PreparedStatement statement = connection.prepareStatement(findUser);
+			statement.setString(1, emailAddress);
+			ResultSet set = statement.executeQuery();
+
+			// set the cursor to the first (and only) row of the results
+			set.next();
+			rowsAffected = set.getInt("total");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return rowsAffected > 0;
 	}
 
 }
