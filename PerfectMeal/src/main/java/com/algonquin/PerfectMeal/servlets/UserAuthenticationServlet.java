@@ -14,6 +14,7 @@ public class UserAuthenticationServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		// redirects to registerUserForm
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/html/userAuthentication.jsp");
 		dispatcher.forward(req, resp);
@@ -24,6 +25,29 @@ public class UserAuthenticationServlet extends HttpServlet {
 
 		// create user DAO
 		UserDAO dao = new UserDAO();
+
+		// add validation code to request object
+		String validationCode = req.getParameter("validationCode");
+
+		try {
+
+			// user does not exist
+			if (dao.validateUser(validationCode) == 0) {
+				throw new Exception("User not found.");
+			}
+
+			// user is already validate
+			if (dao.isValidated(validationCode)) {
+				throw new Exception("User already validated.");
+			}
+
+		} catch (Exception e) {
+
+			// send error to debug page
+			req.setAttribute("errorMessage", e.getMessage());
+			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");
+			errorDispatcher.forward(req, resp);
+		}
 
 	}
 

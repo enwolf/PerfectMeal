@@ -16,7 +16,7 @@ public class RegisterUserServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// redirects to registerUserForm
+		// forwards to registerUserForm
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/html/registerUserForm.jsp");
 		dispatcher.forward(req, resp);
 	}
@@ -33,17 +33,19 @@ public class RegisterUserServlet extends HttpServlet {
 		String pw2 = req.getParameter("confirmPassword");
 		String email = req.getParameter("emailAddress");
 
-		System.out.println(pw1 + pw2 + email);
 		// password validation, then user exists validation
 		try {
+			// check if passwords are equal
 			if (!pw1.equals(pw2)) {
 				throw new Exception("Passwords do not match.  Try again.");
 			}
 
+			// check if user exists
 			if (dao.userExists(email)) {
 				throw new Exception("User already exists.  Try another email address.");
 			}
 
+			// update user object attributes
 			user.setId(UUID.randomUUID().toString());
 			user.setEmail(req.getParameter("emailAddress"));
 			user.setFirstName(req.getParameter("firstName"));
@@ -51,6 +53,7 @@ public class RegisterUserServlet extends HttpServlet {
 			user.setUserName(req.getParameter("emailAddress"));
 			user.setPassword(pw2);
 
+			// create the user in the Database
 			dao.createUser(user);
 
 			// print out validation token to console. Use this for validation.
@@ -58,12 +61,12 @@ public class RegisterUserServlet extends HttpServlet {
 			// release
 			System.out.println(user.getId());
 
-			// forward to verification landing page with user object attached in request
-			req.setAttribute("user", user);
-			RequestDispatcher validationDispatcher = req.getServletContext().getRequestDispatcher("/verify-email");
-			validationDispatcher.forward(req, resp);
+			// need to redirect instead of forward because we want a get request to be
+			// triggered (original was a post).
+			resp.sendRedirect("verify-email");
 
 		} catch (Exception e) {
+
 			// forward to error page for debugging
 			req.setAttribute("errorMessage", e.getMessage());
 			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");

@@ -56,4 +56,45 @@ public class UserDAO {
 		return rowsAffected > 0;
 	}
 
+	public boolean isValidated(String uuid) throws ClassNotFoundException {
+		// returns true if email address exists in User Table
+		int rowsAffected = 0;
+
+		try {
+			Connection connection = DBConnection.getConnectionToDatabase();
+			String findUser = "select count(*) as total from user where Email = ? and isVerified = 1";
+
+			PreparedStatement statement = connection.prepareStatement(findUser);
+			statement.setString(1, uuid);
+			ResultSet set = statement.executeQuery();
+
+			// set the cursor to the first (and only) row of the results
+			set.next();
+			rowsAffected = set.getInt("total");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return rowsAffected > 0;
+	}
+
+	public int validateUser(String validationCode) throws ClassNotFoundException {
+		int rowsAffected = 0;
+		try {
+
+			Connection connection = DBConnection.getConnectionToDatabase();
+			String updateQuery = "update user set isVerified = 1 where uuid = ?";
+
+			PreparedStatement statement = connection.prepareStatement(updateQuery);
+			statement.setString(1, validationCode);
+			rowsAffected = statement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return rowsAffected;
+
+	}
 }

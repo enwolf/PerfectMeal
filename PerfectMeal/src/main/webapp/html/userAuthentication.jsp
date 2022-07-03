@@ -17,7 +17,7 @@
 <p>An email was sent to @email.com <br> Please check your email and enter the code into the dialog box below </p>
 
 <div>
-	<form id="email-validation-form" action=validateEmail method="post">
+	<form id="email-validation-form" action="verify-email" method="post">
 		<label>Input Code: </label>
         <input type="text" id="validationCode" name="validationCode" required>
 		<input type="submit" class="formButton">Submit
