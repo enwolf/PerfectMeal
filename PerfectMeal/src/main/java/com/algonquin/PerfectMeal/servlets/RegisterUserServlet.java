@@ -61,8 +61,8 @@ public class RegisterUserServlet extends HttpServlet {
 			// release
 			System.out.println(user.getId());
 
-			// need to redirect instead of forward because we want a get request to be
-			// triggered (original was a post).
+			// need to redirect instead of forward because we want a GET request to be
+			// triggered (original was a POST).
 			resp.sendRedirect("verify-email");
 
 		} catch (Exception e) {

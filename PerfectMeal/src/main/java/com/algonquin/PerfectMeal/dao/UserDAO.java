@@ -62,7 +62,7 @@ public class UserDAO {
 
 		try {
 			Connection connection = DBConnection.getConnectionToDatabase();
-			String findUser = "select count(*) as total from user where Email = ? and isVerified = 1";
+			String findUser = "select count(*) as total from user where UUID = ? and isVerified = 1";
 
 			PreparedStatement statement = connection.prepareStatement(findUser);
 			statement.setString(1, uuid);
