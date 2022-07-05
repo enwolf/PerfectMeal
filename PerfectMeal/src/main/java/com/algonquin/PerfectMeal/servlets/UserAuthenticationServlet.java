@@ -18,6 +18,7 @@ public class UserAuthenticationServlet extends HttpServlet {
 		// redirects to registerUserForm
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/html/userAuthentication.jsp");
 		dispatcher.forward(req, resp);
+
 	}
 
 	@Override

@@ -82,8 +82,8 @@
                             <td><input type="password" id="confirmPassword" name="confirmPassword" required ></td>
                         </tr>
                         <tr>
-                        	<td ><input type="submit" class="formButton">Submit</td>
-                        	<td><input type="reset" class="formButton">Reset</td>
+                        	<td ><input type="submit" class="formButton" value="Submit"></td>
+                        	<td><input type="reset" class="formButton" value="Reset"></td>
                         </tr>
                     </tbody>
                 </table>
