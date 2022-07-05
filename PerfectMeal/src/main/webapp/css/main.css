@@ -1,0 +1,237 @@
+
+
+
+body{
+    background-color: lightYellow;
+}
+
+
+/* <div> contating image as banners */
+#banner{
+
+    position:relative;
+    margin-bottom:25px;
+    text-align:center;
+    background:#c0f7b2;
+    border-radius: 0px 0px 25px 25px;
+    padding: 10px;
+    
+    }
+
+#banner img{
+    
+    border-radius: 15px 50px;
+    padding: 10px;
+    border: 4px solid lightYellow;
+} 
+
+#wrapper{
+    
+    margin: auto;
+    text-size: 1000px;   
+    
+}
+
+#welcomeCard  {
+       
+    background:#c0f7b2;    
+    float:left;   
+    
+}
+
+/* wrapper for welcomeCard and newUserCard */
+#wrapper{
+
+    background-color:lightYellow;
+}
+
+
+
+#welcomeCard{
+    border-radius: 0px 25px 25px 0px;
+    padding:20px;
+    width: 75%;
+}
+
+
+#welcomeCard h1{
+    
+    font-size: 70px;
+    vertical-align:text-top;
+}
+
+#welcomeCard img{
+
+    
+    width: 80%;
+    height: 50%;
+    margin-left: 10px;
+    
+    border: 4px solid lightYellow;
+    border-radius: 15px 50px 30px;
+    
+}
+
+#welcomeCard p{
+    padding: 10px;
+    font-size: 22px;
+    padding-top: 3%;
+    padding-bottom: 6%;
+
+}
+
+
+#newUserCard {
+    
+ position: relative;
+    /* width controls size of this box*/
+    width: 18%;
+    padding: 10px;
+    float:right;
+    background: #a4dcfc;
+    padding-bottom: 61.7%; /* remove this to stink whole box*/
+    border-radius: 25px 0px 0px 25px;
+    
+}
+
+#newUserHeader{
+       text-align:right;
+       position: absolute;
+        top: 3%;
+        
+}
+
+#newUserHeader h1, h2{
+      
+    
+    color:#155bbd;
+    
+    width:100%;
+    font-size: 26px;
+    
+
+}
+
+
+
+#newUserCallToAction {
+        
+    border:none;
+    position: absolute;
+    top: 20%;
+    right:0;
+    height:5%;
+    width:100%;
+    font-size:20px;
+    font-style:italic;
+    font-weight:bold;
+
+    color: #3087ff;
+    
+       
+}
+/* this abosulute psoitioning work well. */
+#newUserCardImage {
+    
+    position: absolute;
+    left: 7%;
+    bottom: 2%;    
+    width: 250px;
+    height:125px;
+    border: 3px solid lightYellow;
+    border-radius: 15px 50px 30px;
+}
+
+#newUserCardImage2 {
+    
+    position: absolute;
+    left: 7%;
+    bottom: 26%;    
+    width: 250px;
+    height:125px;
+    border: 3px solid lightYellow;
+    border-radius: 15px 50px 30px;
+}
+
+
+#newUserCardImage3 {
+    
+    position: absolute;
+    left: 7%;
+    bottom: 50%;    
+    width: 250px;
+    height:125px;
+    border: 3px solid lightYellow;
+    border-radius: 15px 50px 30px;
+}
+
+
+
+#textOverly{
+ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 700%;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow:  3px 3px #000;
+
+
+}
+
+#wrapper {
+
+  max-width: 1500px;
+  margin: auto;
+
+}
+
+
+
+
+
+/* third card, contating the simulated artical. */
+
+#contentCard {
+       
+    clear: both;   
+    position:relative;
+    top: 50px;
+    background: #c0f7b2;
+    border-radius: 25px 25px 0px 0px;
+    padding:20px;
+    text-align:center;
+
+       
+}
+
+
+
+
+#contentCard h2 {
+    color: black;
+    font-size: 50px;
+    
+}
+
+#contentCard  img{
+    
+    width: 50%;
+    height: 50%;
+    text-align:center;
+    border: 3px solid lightYellow;
+    border-radius: 15px 50px 30px;
+    
+}
+#contentCard p{
+    padding: 10px;
+    text-align:left;   
+    font-size: 22px;
+}
+
+
+
+

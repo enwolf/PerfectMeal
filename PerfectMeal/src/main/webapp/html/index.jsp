@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -63,13 +63,13 @@
                     <h2>Sign up today!!</h2>
                 </div>
             
-                <form action="signup" method="get">
+                <form action="registerUserForm.jsp" method="get">
                     <button id="newUserCallToAction" > Click Here - Join Now!</button>
                 </form>
                     
                 <img id="newUserCardImage3"src="img/chickenDinner.jpg" alt="food"  >     
                 <img id="newUserCardImage2"src="img/salad.jpeg" alt="food"  > 
-                <img id="newUserCardImage"src="img/tomatoBasil.jpg" alt="food"  > 
+                <img id="newUserCardImage"src="img/tomatoBasile.jpg" alt="food"  > 
             </div>
 
             <div id="contentCard">
