@@ -16,7 +16,7 @@ import com.algonquin.PerfectMeal.beans.RecipeLog;
 import com.algonquin.PerfectMeal.services.ApplicationService;
 
 public class RecipeDAO  {
-	public int insertLog(Recipe log) throws ClassNotFoundException {
+/*	public int insertLog(Recipe log) throws ClassNotFoundException {
 		int rowsAffected = 0;
 		try {
 
@@ -40,40 +40,41 @@ public class RecipeDAO  {
 
 		return rowsAffected;
 
-	}
+	} */
 
 
 
 	public List<Recipe> allLogs () throws SQLException, ClassNotFoundException {
 		// return a log from the DB
-
-		RecipeLog log = null;
-		List<Recipe> logs = new ArrayList<>();
+		Connection connection = DBConnection.getConnectionToDatabase();
+		Recipe recipe = null;
+		List<Recipe> recipes = new ArrayList<Recipe>();
 
 		try {
-			Connection connection = DBConnection.getConnectionToDatabase();
+			//Connection connection = DBConnection.getConnectionToDatabase();
 			// obtain log from the
-			String sql = "select * from meal";
+			String sql = "select * from PerfectMeal.meal";
 			// statement object to enable sql execution
-			Statement statement = connection.createStatement();
+			//Statement statement = connection.createStatement();
 			// execute the statement
-			ResultSet set = statement.executeQuery(sql);
-
-			while (set.next()) {
-				log = new RecipeLog();
-				log.setId(set.getString("uuid"));
-				log.setName(set.getString("name"));
-				log.setDescription(set.getString("description"));
-				log.setCookTime(set.getString("cooktime"));
-				log.setMealLink(set.getString("meallink"));
+			//ResultSet set = statement.executeQuery(sql);
+			PreparedStatement sqlQueryStatement = connection.prepareStatement(sql);
+	    	ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
+			while (resultSetFromQuery.next()) {
+				recipe = new Recipe();
+				recipe.setId(resultSetFromQuery.getString("mealID"));
+				recipe.setName(resultSetFromQuery.getString("mealName"));
+				recipe.setDescription(resultSetFromQuery.getString("description"));
+				recipe.setCookTime(resultSetFromQuery.getString("cooktime"));
+				recipe.setMealLink(resultSetFromQuery.getString("meallink"));
 			}
 
 		} catch (SQLException e) {
 			System.out.println("yep this is where it failed");
 			e.printStackTrace();
 		}
-
-		return logs;
+		connection.close();;
+		return recipes;
 	}
 
 }

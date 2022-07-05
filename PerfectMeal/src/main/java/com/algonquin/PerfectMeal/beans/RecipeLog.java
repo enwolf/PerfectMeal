@@ -6,8 +6,8 @@ public class RecipeLog extends Recipe {
         super();
     }
 
-    public RecipeLog(String id, String name, String description, String CookTime, String MealLink) {
-        super(id, name, description, CookTime, MealLink);
+    public RecipeLog(String mealID, String mealName, String description, String CookTime, String MealLink) {
+        super(mealID, mealName, description, CookTime, MealLink);
     }
 
 }
