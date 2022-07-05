@@ -10,7 +10,8 @@ CREATE TABLE USER (
 					LastName 	CHAR(100), 
                     Username 	VARCHAR(100),
                     Password 	VARCHAR(100),
-                    Email		VARCHAR(100)
+                    Email		VARCHAR(100),
+                    isVerified 	BOOLEAN DEFAULT FALSE
 				    );
 
 CREATE TABLE MEAL (
