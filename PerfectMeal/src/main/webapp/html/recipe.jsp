@@ -11,9 +11,9 @@
 <html>
 <head>
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/navBar.css">
+    <link rel="stylesheet" type="text/css" href="../css/navBar.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">    
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta charset="utf-8" />
     <style>
       table,
@@ -58,7 +58,7 @@
         <!-- Navigation Bar End-->
                 <div id="wrapper">
             <div id="banner">
-                <img src="img/foodBanner.jpg" alt="food"  > 
+                <img src="../img/foodBanner.jpg" alt="food"  > 
             <div id="textOverly">Start Planning!</div>
         </div>
 <h1>Recipes: </h1>
