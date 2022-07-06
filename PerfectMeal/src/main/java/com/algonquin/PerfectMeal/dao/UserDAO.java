@@ -174,7 +174,7 @@ public class UserDAO {
 			  	  System.out.println(specificUser.getFirstName());
 			  	  System.out.println(specificUser.getLastName());
 				   
-			  	  System.out.println("Log to edit matching this query = " + selectUserSqlQuery);
+			  	  System.out.println("User returned matches this query = " + selectUserSqlQuery);
 		  	  
 			  }
 			   
@@ -197,15 +197,16 @@ public class UserDAO {
 	
 				
 				String sqlQuery = "SELECT * "
-								+ "FROM user"
-								+ "WHERE email=?"
-								+ "AND password=?";
-				
+								+ "FROM user "
+								+ "WHERE email=? "
+								+ "AND password=?";						
+						
 				PreparedStatement sqlStatement = dbConnection.prepareStatement(sqlQuery);
+				
 				sqlStatement.setString(1, email);
 				sqlStatement.setString(2, password);
 				
-				ResultSet returnedSet = sqlStatement.executeQuery(sqlQuery);
+				ResultSet returnedSet = sqlStatement.executeQuery();
 				
 				while(returnedSet.next())
 				{
