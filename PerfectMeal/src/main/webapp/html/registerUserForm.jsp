@@ -40,7 +40,7 @@
         <!-- Navigation Bar End-->
 
 <div id="wrapper">
-    <div id="wrapper2">
+    <div id="wrapper2"> <!-- wrapper2 is used to format the text overlaying the image -->
         <div id="banner">
             <img src="img/foodBanner.jpg" alt="food"  > 
         <div id="textOverly">Register Now!</div>
