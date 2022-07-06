@@ -12,7 +12,7 @@
 </head>
 	<body>
 		<h1>You have logged in!</h1>
-		<h2>Welcome <%= request.getAttribute("firstName")%> <%= request.getAttribute("lastName") %> </h2>	
+		<h2>Name: <%= request.getAttribute("firstName")%> <%= request.getAttribute("lastName") %> </h2>	
 		<h2>Email: <%= request.getAttribute("userEmail") %></h2>
 		<h2>Session value: <%= session.getAttribute("loginEmail") %></h2>
 
