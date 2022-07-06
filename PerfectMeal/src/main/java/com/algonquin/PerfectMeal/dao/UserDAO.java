@@ -182,6 +182,48 @@ public class UserDAO {
 			  return specificUser;   
 			   
 		   }
+	   
+	   
+	   
+		
+		public boolean validateUserLogin(String email, String password) {
+			
+			boolean isValidUser = false;
+						
+			
+			try {
+				
+				Connection dbConnection = DBConnection.getConnectionToDatabase();
 	
+				
+				String sqlQuery = "SELECT * "
+								+ "FROM user"
+								+ "WHERE email=?"
+								+ "AND password=?";
+				
+				PreparedStatement sqlStatement = dbConnection.prepareStatement(sqlQuery);
+				sqlStatement.setString(1, email);
+				sqlStatement.setString(2, password);
+				
+				ResultSet returnedSet = sqlStatement.executeQuery(sqlQuery);
+				
+				while(returnedSet.next())
+				{
+					isValidUser = true;
+				}
+			
+			} catch (ClassNotFoundException | SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			
+			return isValidUser;		
+		}
+	   
+ 
+	   
+	   
+
 	
-}
+}//End of UserDAO
