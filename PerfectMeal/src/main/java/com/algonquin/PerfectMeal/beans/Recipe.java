@@ -8,7 +8,7 @@ import java.util.ListIterator;
 import java.util.UUID;
 
 public class Recipe {
-	private String mealID;
+	private int mealID;
 	private String mealName;
 	private String description;
 	private String CookTime;
@@ -17,18 +17,18 @@ public class Recipe {
 	
     public Recipe() {
     }
-    public Recipe(String mealID, String mealName, String description, String CookTime, String MealLink) {
+    public Recipe(int mealID, String mealName, String description, String CookTime, String MealLink) {
         this.mealID = mealID;
         this.mealName = mealName;
         this.description = description;
         this.CookTime = CookTime;
         this.MealLink = MealLink;
     }
-	public void setId(String mealID) {
+	public void setId(int mealID) {
 		this.mealID = mealID;
 		
 	}
-    public String getId() {
+    public int getId() {
         return mealID;
     }
     
