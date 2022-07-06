@@ -43,6 +43,7 @@
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>  
 
+  
   <servlet>
   	<servlet-name>LogoutServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.LogoutServlet</servlet-class>
@@ -52,7 +53,6 @@
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/logout</url-pattern>
   </servlet-mapping> 
-  
   
 
   
