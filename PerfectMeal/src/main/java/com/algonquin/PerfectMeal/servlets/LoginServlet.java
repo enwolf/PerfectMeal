@@ -1,5 +1,6 @@
 package com.algonquin.PerfectMeal.servlets;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -27,6 +28,8 @@ public class LoginServlet extends HttpServlet {
 		//Create our UserDAO and User objects
 		UserDAO userDAO = new UserDAO();
 		User userToLogin = new User();
+		
+		Boolean isLogin = false;
 	
 		/*	
 		    Try statement is used as a logic gate, if exception's are throw the user is sent to error.jsp page
@@ -36,6 +39,9 @@ public class LoginServlet extends HttpServlet {
 			UserDAO also returns a user Object with values fetched from the user Database.
 			Request used to setAttribute to be displayed on login.jsp page.
 			Dispatcher's send either to login.jsp page, or error.jsp page
+			
+			I'm not sure if this is a valid / correct way to use try catch but I think 
+			for what we need to demonstrate it should be fine.
 		
 		*/
 		try{
@@ -45,27 +51,25 @@ public class LoginServlet extends HttpServlet {
 			if(!userDAO.isValidatedByEmail(loginEmail))
 				throw new Exception("User account not verified.");
 		
-			userToLogin = userDAO.getSpeicifcUserFromDatabaseByEmail(loginEmail);
 			
-			if(userToLogin.getPassword().equals(password)){
-				System.out.println("Password Correct forwarding to login.jsp");
-				request.setAttribute("userEmail", userToLogin.getEmail());
-				request.setAttribute("firstName", userToLogin.getFirstName());
-				request.setAttribute("lastName", userToLogin.getLastName());
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/html/login.jsp");
-				dispatcher.forward(request, response);
-				
-			}else{
-				throw new Exception("Error Password Incorrect");
-			}
+			if (!userDAO.validateUserLogin(loginEmail, password))
+			throw new Exception("Error: Username or Password Incorrect");
+			
+			System.out.println("Password Correct forwarding to login.jsp");
+			userToLogin = userDAO.getSpeicifcUserFromDatabaseByEmail(loginEmail);			
+			request.setAttribute("userEmail", userToLogin.getEmail());
+			request.setAttribute("firstName", userToLogin.getFirstName());
+			request.setAttribute("lastName", userToLogin.getLastName());
+			
+			request.getRequestDispatcher("/html/login.jsp").forward(request, response);				
+		
 			
 		}catch (Exception e) {
 
 			//Forward to error page if exception is caught. 
 			request.setAttribute("errorMessage", e.getMessage());
-			RequestDispatcher errorDispatcher = request.getRequestDispatcher("/html/error.jsp");
-			errorDispatcher.forward(request, response);
+			request.getRequestDispatcher("/html/error.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 
