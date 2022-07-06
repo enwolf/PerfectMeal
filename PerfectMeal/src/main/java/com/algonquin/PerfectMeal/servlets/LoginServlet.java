@@ -11,25 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
 		
+		String loginEmail = request.getParameter("email");
+		String password = request.getParameter("password");
 		
 		
 		
 		
 		System.out.println("Pressed login!!");
+		System.out.println("Email input value = " + loginEmail);
+		System.out.println("Password input value = " + password);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/html/login.jsp");
+		dispatcher.forward(request, response);
 		
 		
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/html/login.jsp");
-		dispatcher.forward(req, resp);
 	}
 
 }
