@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.algonquin.PerfectMeal.beans.User;
 import com.algonquin.PerfectMeal.dao.UserDAO;
@@ -27,10 +28,9 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		//Create our UserDAO and User objects
 		UserDAO userDAO = new UserDAO();
-		User userToLogin = new User();
+		User userToLogin = new User();		
 		
-		Boolean isLogin = false;
-	
+		
 		/*	
 		    Try statement is used as a logic gate, if exception's are throw the user is sent to error.jsp page
 		    along with the appropriate error message.
@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 			for what we need to demonstrate it should be fine.
 		
 		*/
+		
 		try{
 			if(!userDAO.userExists(loginEmail))
 				throw new Exception("User not found");
@@ -54,7 +55,10 @@ public class LoginServlet extends HttpServlet {
 			
 				
 			if (!userDAO.validateUserLogin(loginEmail, password))
-			throw new Exception("Error: Username or Password Incorrect");
+				throw new Exception("Error: Username or Password Incorrect");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("loginEmail", loginEmail);
 			
 			System.out.println("Password Correct forwarding to login.jsp");
 			userToLogin = userDAO.getSpeicifcUserFromDatabaseByEmail(loginEmail);			
