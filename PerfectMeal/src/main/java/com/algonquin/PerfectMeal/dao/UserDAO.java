@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.algonquin.PerfectMeal.beans.User;
+
 
 public class UserDAO {
 
@@ -53,6 +53,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 
+		//Returns true if greater then 0 and false if not
 		return rowsAffected > 0;
 	}
 
@@ -80,7 +81,7 @@ public class UserDAO {
 	}
 	
 	public boolean isValidatedByEmail(String email) throws ClassNotFoundException {
-		// returns true if email address exists in User Table
+		// returns true if email address exists in User Table and isVerified = 1
 		int rowsAffected = 0;
 
 		try {
@@ -120,4 +121,67 @@ public class UserDAO {
 		return rowsAffected;
 
 	}
+	
+	
+	
+	
+	/* 
+	 * Method getSpeicifcUserFromDatabaseByEmail() takes an String representing an email as parameter 
+	 * 
+	 * Then initialize a new user object.
+	 * 
+	 * Creates a connection object which use our DBConnection object to obtain an open connection to the database we have specified.  
+	 * 
+	 * Builds the SQL Query String to be executed to return all data for the user with the email passed into the method. 
+	 * 
+	 * Using PreparedStatement object with our Connection object to execute the SQL query and return a ResultSet 
+	 * containing the specific user information.
+	 * 
+	 * While loop is used to added data stored in the database to our user Object. 
+	 * 
+	 * Once the user object is created we close the Database connection and return the user object. 
+	 * 
+	 * TODO sys.out messages can be removed once everything is working, or replaced with something better. 
+	 */
+
+	
+	   public User getSpeicifcUserFromDatabaseByEmail(String email) throws SQLException, ClassNotFoundException {
+		   
+			  User specificUser = new User();
+			   
+			  Connection dbConnection = DBConnection.getConnectionToDatabase();
+			  System.out.println("Get Specfic User Connected");
+			  
+			  String selectUserSqlQuery = "SELECT * "
+			  					        + "FROM user "
+			  					        + "WHERE email='" + email +"'";
+			  
+			  System.out.println("Get Specfic user query string = " + selectUserSqlQuery);
+			  
+			  PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
+			  ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
+			  
+			  while(resultSetFromQuery.next()){
+			  
+				  specificUser.setId(resultSetFromQuery.getString("UUID"));
+				  specificUser.setFirstName(resultSetFromQuery.getString("FirstName"));
+				  specificUser.setLastName(resultSetFromQuery.getString("LastName"));
+				  specificUser.setPassword(resultSetFromQuery.getString("Password"));
+				  specificUser.setEmail(resultSetFromQuery.getString("email"));
+				  
+				   
+			  	  System.out.println(specificUser.getId());
+			  	  System.out.println(specificUser.getFirstName());
+			  	  System.out.println(specificUser.getLastName());
+				   
+			  	  System.out.println("Log to edit matching this query = " + selectUserSqlQuery);
+		  	  
+			  }
+			   
+			  dbConnection.close();	   
+			  return specificUser;   
+			   
+		   }
+	
+	
 }
