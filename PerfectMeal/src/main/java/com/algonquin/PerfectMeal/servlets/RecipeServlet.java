@@ -1,12 +1,8 @@
 package com.algonquin.PerfectMeal.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.jar.Attributes.Name;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,31 +13,27 @@ import javax.servlet.http.HttpServletResponse;
 import com.algonquin.PerfectMeal.beans.Recipe;
 import com.algonquin.PerfectMeal.beans.RecipeLog;
 import com.algonquin.PerfectMeal.dao.RecipeDAO;
-import com.algonquin.PerfectMeal.services.ApplicationService;
-
-
 
 public class RecipeServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RecipeDAO dao = new RecipeDAO();
+		try {
+			List<Recipe> recipes = dao.allLogs();
+			request.setAttribute("recipe", recipes);
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    RecipeDAO dao = new RecipeDAO();
-    try {
-    List<Recipe> recipes = dao.allLogs();
-    request.setAttribute("recipe", recipes);
-	} catch (SQLException | ClassNotFoundException e) {
-		e.printStackTrace();
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/html/recipe.jsp");
+		dispatcher.forward(request, response);
 	}
-
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/html/recipe.jsp");
-    dispatcher.forward(request, response);
-    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -73,5 +65,5 @@ public class RecipeServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/html/logForm.jsp");
 		dispatcher.forward(request, response);
 
-}
+	}
 }

@@ -79,7 +79,7 @@ public class UserDAO {
 		return rowsAffected > 0;
 	}
 
-	public int validateUser(String validationCode) throws ClassNotFoundException {
+	public int authenticateUser(String validationCode) throws ClassNotFoundException {
 		int rowsAffected = 0;
 		try {
 

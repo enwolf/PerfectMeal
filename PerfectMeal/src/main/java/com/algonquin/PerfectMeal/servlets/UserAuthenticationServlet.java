@@ -32,14 +32,14 @@ public class UserAuthenticationServlet extends HttpServlet {
 
 		try {
 
-			// user does not exist
-			if (dao.validateUser(validationCode) == 0) {
-				throw new Exception("User not found.");
-			}
-
-			// user is already validate
+			// user is already validated
 			if (dao.isValidated(validationCode)) {
 				throw new Exception("User already validated.");
+			}
+
+			// user does not exist
+			if (dao.authenticateUser(validationCode) == 0) {
+				throw new Exception("User not found.");
 			}
 
 		} catch (Exception e) {
