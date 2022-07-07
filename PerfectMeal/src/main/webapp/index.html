@@ -27,13 +27,17 @@
 
           <!-- Right-aligned login lable and input -->
           <div id="topnav-login">
-              <lable>Username:<lable>
-              <input type="text" /> 
-              <lable>Password:<lable>
-              <input type="text" /> 
+          <form action="login" method="post">
+              <label>Email:</label>
+              <input type="text" id="email" name="email" value="" required/> 
+              <label>Password:</label>
+              <input type="text" id="password" name="password" value="" required/> 
+              
               <button>Login</button>
-               <span> | </span>
-              <button>Forgot Password?</button>
+              </form>
+
+              <!-- <span> | </span>
+              <button>Forgot Password?</button> -->
               
           </div>
 

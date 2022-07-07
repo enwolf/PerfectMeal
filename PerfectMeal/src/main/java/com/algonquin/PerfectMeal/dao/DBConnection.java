@@ -11,7 +11,8 @@ import java.sql.Statement;
 public class DBConnection {
 
 	private static final String DBUSER = "root";
-	private static final String DBPASSWORD = "Kara2016!";
+	private static final String DBPASSWORD = "password";
+
 	private static final String CONN_STRING = "jdbc:mysql://localhost:3306/PerfectMeal";
 	private static final String DB_INITIALIZER_FILEPATH = "com.algonquin.PerfectMeal.resources/DDL.sql";
 
