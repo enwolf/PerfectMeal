@@ -24,6 +24,8 @@ public class UserAuthenticationServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String name = req.getParameter("page");
+		System.out.println(name);
 		// create user DAO
 		UserDAO dao = new UserDAO();
 
@@ -31,16 +33,17 @@ public class UserAuthenticationServlet extends HttpServlet {
 		String validationCode = req.getParameter("validationCode");
 
 		try {
-
+			// user is already validate
+			if (dao.isValidated(validationCode)) {
+				throw new Exception("User already validated.");
+			}
 			// user does not exist
 			if (dao.validateUser(validationCode) == 0) {
 				throw new Exception("User not found.");
 			}
 
-			// user is already validate
-			if (dao.isValidated(validationCode)) {
-				throw new Exception("User already validated.");
-			}
+			// go back to index page
+			resp.sendRedirect("index.html");
 
 		} catch (Exception e) {
 
