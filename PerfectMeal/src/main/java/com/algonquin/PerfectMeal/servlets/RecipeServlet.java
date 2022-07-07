@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.algonquin.PerfectMeal.beans.Recipe;
-import com.algonquin.PerfectMeal.beans.RecipeLog;
 import com.algonquin.PerfectMeal.dao.RecipeDAO;
-import com.algonquin.PerfectMeal.services.ApplicationService;
 
 
 
@@ -47,11 +45,11 @@ public class RecipeServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// get post parameters
-		String title = request.getParameter("title");
-		String text = request.getParameter("logText");
+		String name = request.getParameter("name");
+		String desciption = request.getParameter("description");
 
 		// create a new log object
-		Recipe log = new RecipeLog();
+		Recipe log = new Recipe();
 
 		// use the application in memory object to add log to collection
 		// aim.addLog(log);
@@ -70,7 +68,7 @@ public class RecipeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/html/logForm.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/html/recipe.jsp");
 		dispatcher.forward(request, response);
 
 }

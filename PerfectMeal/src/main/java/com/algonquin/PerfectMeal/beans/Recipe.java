@@ -8,8 +8,8 @@ import java.util.ListIterator;
 import java.util.UUID;
 
 public class Recipe {
-	private String id;
-	private String name;
+	private int mealID;
+	private String mealName;
 	private String description;
 	private String CookTime;
 	private String MealLink;
@@ -17,27 +17,27 @@ public class Recipe {
 	
     public Recipe() {
     }
-    public Recipe(String id, String name, String description, String CookTime, String MealLink) {
-        this.id = id;
-        this.name = name;
+    public Recipe(int mealID, String mealName, String description, String CookTime, String MealLink) {
+        this.mealID = mealID;
+        this.mealName = mealName;
         this.description = description;
         this.CookTime = CookTime;
         this.MealLink = MealLink;
     }
-	public void setId(String uuid) {
-		this.id = uuid;
+	public void setId(int mealID) {
+		this.mealID = mealID;
 		
 	}
-    public String getId() {
-        return id;
+    public int getId() {
+        return mealID;
     }
     
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String mealName) {
+		this.mealName = mealName;
 		
 	}
     public String getName() {
-        return name;
+        return mealName;
     }
     
 	public void setDescription(String description) {
@@ -64,12 +64,4 @@ public class Recipe {
         return MealLink;
     }
 	
-
-  /*  public String getAllRecipes() {
-    	return id;
-    	return name;
-    	return description;
-    	return CookTime;
-    	return MealLink;
-    } */
 }
