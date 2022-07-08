@@ -169,12 +169,6 @@ public class UserDAO {
 				  specificUser.setPassword(resultSetFromQuery.getString("Password"));
 				  specificUser.setEmail(resultSetFromQuery.getString("email"));
 				  
-				   
-			  	  System.out.println(specificUser.getId());
-			  	  System.out.println(specificUser.getFirstName());
-			  	  System.out.println(specificUser.getLastName());
-				   
-			  	  System.out.println("User returned matches this query = " + selectUserSqlQuery);
 		  	  
 			  }
 			   
@@ -221,6 +215,55 @@ public class UserDAO {
 			
 			return isValidUser;		
 		}
+		
+		
+		
+		
+		public int updateUserDataInDatabase(String loginEmail, String firstName, String lastName,  String password) throws SQLException, ClassNotFoundException{
+			
+			  Connection dbConnection = DBConnection.getConnectionToDatabase();
+			  
+			  String updateSqlQuery = "UPDATE user "
+			  						+ "SET FirstName='" + firstName + "', LastName='" + lastName + "', Password='" + password + "' "
+					  				+ "WHERE Email='" + loginEmail + "'";
+			  
+			  System.out.println("update user in databae query = " + updateSqlQuery);
+			  
+			  PreparedStatement sqlStatment = dbConnection.prepareStatement(updateSqlQuery);
+			  
+		  	  System.out.println("updateUserDataInDatabase query = " + updateSqlQuery);
+			   
+		  	  			  
+			  int rowsAffected = sqlStatment.executeUpdate();
+			   
+			  dbConnection.close(); 
+			   
+			  return rowsAffected; 
+			   
+		   }
+		
+		
+		   public int deleteUserFromDatabase(String userEmail) throws SQLException, ClassNotFoundException {
+			   
+			   Connection dbConnection = DBConnection.getConnectionToDatabase();
+			   System.out.println("DeleteTextLog Connected");
+			   
+			   String deleteSqlQuery = "DELETE FROM user "
+			   						 + "WHERE Email='" + userEmail + "'";
+			   
+			   System.out.println("Delete User query string = " + deleteSqlQuery);
+			   
+			   
+			   PreparedStatement sqlStatment = dbConnection.prepareStatement(deleteSqlQuery);
+			   
+			   System.out.println("Deleteing User matching this query= " + deleteSqlQuery);
+			   
+			   int rowsAffected = sqlStatment.executeUpdate();
+			   dbConnection.close();	   
+			   return rowsAffected;   
+			   
+		   }
+	   
 	   
  
 	   
