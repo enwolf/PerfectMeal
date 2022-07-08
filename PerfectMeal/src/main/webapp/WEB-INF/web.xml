@@ -65,6 +65,16 @@
   	<url-pattern>/userProfile</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+  	<servlet-name>UpdateUserProfileServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdateUserProfileServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateUserProfileServlet</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
   
   
 
