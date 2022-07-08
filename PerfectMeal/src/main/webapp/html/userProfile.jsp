@@ -1,3 +1,9 @@
+<%
+	String firstName = (String) session.getAttribute("firstName");
+	String lastName  = (String) session.getAttribute("lastName");	
+	String password  = (String) session.getAttribute("password");
+%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +14,35 @@
 	<h1>Current User Info</h1>
 	<form>
 		<label>FirstName:</label>
-		<input id="fristName" name="firstname" value=""><a href="">Edit</a> 
+		<input type="text" id="fristName" name="firstName" value="<%= firstName  %>"> 
 		<br>
 		<br>
 		<label>LastName:</label>
-		<input id="lastName" name="lastName" value=""><a href="">Edit</a>
+		<input id="lastName" name="lastName" value="<%= lastName %>">
 		<br>
 		<br>
 		<label>Password:</label>
-		<input id="password" name="password" value=""><a href="">Edit</a>
-		
+		<input id="password" name="password" value="<%= password %>">
 	</form>
+	<br>
+	<br>
+	
+	
+	<form action="userProfile" method="post">
+		<button>Update</button>
+    </form>
+       <br>
+       <br>
+    <form action="delete" method="post">
+ 	   <button>Delete User</button>
+    </form>
+    <br>
+    <br>
+    <form action="logout" method="post">
+ 	   <button>Logout</button>
+    </form>
+
 
 </body>
 </html>
+
