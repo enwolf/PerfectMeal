@@ -14,5 +14,10 @@
 		<h2>Email: <%= request.getAttribute("userEmail") %></h2>
 		
 		<h2>Session value: <%= session.getAttribute("loginEmail") %></h2>
+		
+		<form action="userProfile" method="post">
+ 			<button>View User Profile</button>
+        </form>
+        
 	</body>
 </html>
