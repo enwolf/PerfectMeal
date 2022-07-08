@@ -1,7 +1,18 @@
 <%
+	
+	
+	String updateMessage = "<h2> Update Sucessful! <h2>";
 	String firstName = (String) session.getAttribute("firstName");
 	String lastName  = (String) session.getAttribute("lastName");	
 	String password  = (String) session.getAttribute("password");
+	String email = (String) session.getAttribute("loginEmail");
+	int isUpdated = 0;
+	if(session.getAttribute("isUpdated")!= null){	
+		isUpdated = (int) session.getAttribute("isUpdated");
+	}
+	
+	
+
 %>
 	
 <!DOCTYPE html>
@@ -12,9 +23,13 @@
 </head>
 <body>
 	<h1>Current User Info</h1>
-	<form>
+	<%
+		if(isUpdated == 1)
+			out.println(updateMessage);		
+	%>
+	<form action="update" method="post">
 		<label>FirstName:</label>
-		<input type="text" id="fristName" name="firstName" value="<%= firstName  %>"> 
+		<input type="text" id="fristName" name="firstName" value="<%= firstName %>"> 
 		<br>
 		<br>
 		<label>LastName:</label>
@@ -23,17 +38,13 @@
 		<br>
 		<label>Password:</label>
 		<input id="password" name="password" value="<%= password %>">
+		<br>
+		<br>
+		<button>Update</button>
 	</form>
 	<br>
 	<br>
-	
-	
-	<form action="userProfile" method="post">
-		<button>Update</button>
-    </form>
-       <br>
-       <br>
-    <form action="delete" method="post">
+	<form action="delete" method="post">
  	   <button>Delete User</button>
     </form>
     <br>
@@ -41,8 +52,6 @@
     <form action="logout" method="post">
  	   <button>Logout</button>
     </form>
-
-
 </body>
 </html>
 
