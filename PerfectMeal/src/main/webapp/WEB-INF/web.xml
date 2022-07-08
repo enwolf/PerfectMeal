@@ -23,6 +23,7 @@
   </servlet-mapping>
   
   
+  
   <servlet>
   	<servlet-name>UserAuthenticationServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.UserAuthenticationServlet</servlet-class>
@@ -32,6 +33,7 @@
   	<servlet-name>UserAuthenticationServlet</servlet-name>
   	<url-pattern>/verify-email</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>ForgotPasswordServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.ForgotPasswordServlet</servlet-class>
@@ -40,6 +42,15 @@
   <servlet-mapping>
   	<servlet-name>ForgotPasswordServlet</servlet-name>
   	<url-pattern>/forgot-password</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UpdatePasswordServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdatePasswordServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdatePasswordServlet</servlet-name>
+  	<url-pattern>/update-password</url-pattern>
   </servlet-mapping>
 
   <servlet>
