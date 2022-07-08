@@ -62,9 +62,11 @@ public class LoginServlet extends HttpServlet {
 			
 			System.out.println("Password Correct forwarding to login.jsp");
 			userToLogin = userDAO.getSpeicifcUserFromDatabaseByEmail(loginEmail);			
+			
 			request.setAttribute("userEmail", userToLogin.getEmail());
 			request.setAttribute("firstName", userToLogin.getFirstName());
 			request.setAttribute("lastName", userToLogin.getLastName());
+			request.setAttribute("Password", userToLogin.getPassword());
 			
 			request.getRequestDispatcher("/html/login.jsp").forward(request, response);				
 		
