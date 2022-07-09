@@ -17,7 +17,7 @@
 		<h2>Session value: <%= session.getAttribute("loginEmail") %></h2>
 
         <form action="userProfile" method="post">
- 		    <input type="button" Value="User Profile!!" />
+ 		   <button>View User Profile</button>
         </form>
 
 		<br>	

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.algonquin.PerfectMeal.beans.User;
 
 public class UserDAO {
@@ -81,6 +80,7 @@ public class UserDAO {
 		return rowsAffected > 0;
 	}
 
+
 	public boolean isValidated(String uuid) throws ClassNotFoundException {
 		// returns true if email address exists in User Table
 		int rowsReturned = 0;
@@ -103,6 +103,7 @@ public class UserDAO {
 
 		return rowsReturned > 0;
 	}
+
 
 	public boolean isValidatedByEmail(String email) throws ClassNotFoundException {
 		// returns true if email address exists in User Table and isVerified = 1
@@ -176,6 +177,7 @@ public class UserDAO {
 
 		Connection dbConnection = DBConnection.getConnectionToDatabase();
 
+
 		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE email='" + email + "'";
 
 		PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
@@ -196,7 +198,6 @@ public class UserDAO {
 			return null;
 		}
 		return specificUser;
-
 	}
 
 	public User getUserByID(String uuid) throws SQLException, ClassNotFoundException {
@@ -206,6 +207,13 @@ public class UserDAO {
 		Connection dbConnection = DBConnection.getConnectionToDatabase();
 
 		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE uuid='" + uuid + "'";
+
+		System.out.println("Get Specfic User Connected");
+
+		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE email='" + email + "'";
+
+		System.out.println("Get Specfic user query string = " + selectUserSqlQuery);
+
 
 		PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
 		ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
@@ -249,6 +257,7 @@ public class UserDAO {
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
+
 		}
 
 		return isValidUser;
@@ -275,6 +284,50 @@ public class UserDAO {
 		}
 
 		return rowsAffected > 0;
+
+		}
+    
+
+	public int updateUserDataInDatabase(String loginEmail, String firstName, String lastName, String password)
+			throws SQLException, ClassNotFoundException {
+
+		Connection dbConnection = DBConnection.getConnectionToDatabase();
+
+		String updateSqlQuery = "UPDATE user " + "SET FirstName='" + firstName + "', LastName='" + lastName
+				+ "', Password='" + password + "' " + "WHERE Email='" + loginEmail + "'";
+
+		System.out.println("update user in databae query = " + updateSqlQuery);
+
+		PreparedStatement sqlStatment = dbConnection.prepareStatement(updateSqlQuery);
+
+		System.out.println("updateUserDataInDatabase query = " + updateSqlQuery);
+
+		int rowsAffected = sqlStatment.executeUpdate();
+
+		dbConnection.close();
+
+		return rowsAffected;
+
+	}
+
+	public int deleteUserFromDatabase(String userEmail) throws SQLException, ClassNotFoundException {
+
+		Connection dbConnection = DBConnection.getConnectionToDatabase();
+		System.out.println("DeleteTextLog Connected");
+
+		String deleteSqlQuery = "DELETE FROM user " + "WHERE Email='" + userEmail + "'";
+
+		System.out.println("Delete User query string = " + deleteSqlQuery);
+
+		PreparedStatement sqlStatment = dbConnection.prepareStatement(deleteSqlQuery);
+
+		System.out.println("Deleteing User matching this query= " + deleteSqlQuery);
+
+		int rowsAffected = sqlStatment.executeUpdate();
+		dbConnection.close();
+		return rowsAffected;
+
+
 	}
 
 }// End of UserDAO

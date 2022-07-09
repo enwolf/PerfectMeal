@@ -73,6 +73,45 @@
   	<url-pattern>/logout</url-pattern>
   </servlet-mapping> 
   
+  
+  <servlet>
+  	<servlet-name>UserProfileServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UserProfileServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UserProfileServlet</servlet-name>
+  	<url-pattern>/userProfile</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>UpdateUserProfileServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdateUserProfileServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateUserProfileServlet</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+
+    <servlet>
+  	<servlet-name>DeleteUserServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.DeleteUserServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteUserServlet</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>  
+  
+  
+  
+  
+  
+  
 
   
 </web-app>
