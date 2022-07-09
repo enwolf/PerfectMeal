@@ -35,7 +35,7 @@
         <span id="cornerTitle">Perfect Meal</span>
           <!-- Centered links -->
           <div id="topnav-centered">
-            <a href="#home" class="active">Home <i class="fa fa-home"></i> </a>
+            <a href="../index.html" class="active">Home <i class="fa fa-home"></i> </a>
             <a href="#mealPlanner">Meal Planner  <i class="fa fa-calendar" aria-hidden="true"></i> </a>
             <a href="#contact">Contact  <i class="fa fa-envelope"></i></a>
             <a href="#about">About <i class="fa fa-info-circle"></i></a>
