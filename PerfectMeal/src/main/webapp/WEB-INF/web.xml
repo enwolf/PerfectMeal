@@ -22,8 +22,6 @@
   	<url-pattern>/signup</url-pattern>
   </servlet-mapping>
   
-  
-  
   <servlet>
   	<servlet-name>UserAuthenticationServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.UserAuthenticationServlet</servlet-class>
@@ -43,6 +41,7 @@
   	<servlet-name>ForgotPasswordServlet</servlet-name>
   	<url-pattern>/forgot-password</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>UpdatePasswordServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdatePasswordServlet</servlet-class>

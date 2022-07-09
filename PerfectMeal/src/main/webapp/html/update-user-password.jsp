@@ -17,7 +17,7 @@
 <div>
 	<form id="forgot-password-email-form" action="update-password" method="post">
         <label>New Password:</label>
-        <input type="text" id="password" name="repeat-password" required>
+        <input type="text" id="password" name="password" required>
         <label>Re-Type New Password:</label>
         <input type="text" id="confirmPassword" name="confirmPassword" required>
 		<input type="submit" class="formButton" value="Submit">

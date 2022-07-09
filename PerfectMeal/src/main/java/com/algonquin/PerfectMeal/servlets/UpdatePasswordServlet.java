@@ -1,7 +1,6 @@
 package com.algonquin.PerfectMeal.servlets;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +42,7 @@ public class UpdatePasswordServlet extends HttpServlet {
 		}
 
 		// redirects to update password form
-		resp.sendRedirect("html/update-user-password.jsp");
+		resp.sendRedirect("../html/update-user-password.jsp");
 
 	}
 
@@ -52,27 +51,23 @@ public class UpdatePasswordServlet extends HttpServlet {
 		// takes in 2 passwords and a user name and updates the password
 		// create user DAO
 		UserDAO dao = new UserDAO();
+		HttpSession session = req.getSession();
+		System.out.println("reached");
+		String pw1 = req.getParameter("password");
+		String pw2 = req.getParameter("confirmPassword");
 
-		//
+		User user = (User) session.getAttribute("user");
+		String email = user.getEmail();
 
 		try {
-			// user exists
-			User user = dao.getSpeicifcUserFromDatabaseByEmail("");
-			System.out.println(user.getId());
-			req.setAttribute("user", user);
+			// check if passwords are equal
+			if (!pw1.equals(pw2)) {
+				throw new Exception("Passwords do not match.  Try again.");
+			}
 
-		} catch (SQLException e) {
-			// user not found
-			e.printStackTrace();
-
-			// send error to debug page
-			req.setAttribute("errorMessage", e.getMessage() + " | User Not Found");
-			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");
-			errorDispatcher.forward(req, resp);
+			dao.updatePassword(email, pw2);
 
 		} catch (Exception e) {
-			// catch any other errors that happen
-			// send error to debug page
 			req.setAttribute("errorMessage", e.getMessage());
 			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");
 			errorDispatcher.forward(req, resp);
