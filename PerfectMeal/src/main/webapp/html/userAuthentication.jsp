@@ -20,7 +20,7 @@
 	<form id="email-validation-form" action="verify-email" method="post">
 		<label>Input Code: </label>
         <input type="text" id="validationCode" name="validationCode" required>
-		<input type="submit" class="formButton">Submit
+		<input type="submit" class="formButton" value="Submit">
 	</form>
 </div>
 </body>

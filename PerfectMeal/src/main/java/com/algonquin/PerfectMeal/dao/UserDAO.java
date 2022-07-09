@@ -56,13 +56,13 @@ public class UserDAO {
 		return rowsAffected > 0;
 	}
 
-	public boolean isValidated(String uuid) throws ClassNotFoundException {
+	public boolean userIDExists(String uuid) throws ClassNotFoundException {
 		// returns true if email address exists in User Table
 		int rowsAffected = 0;
 
 		try {
 			Connection connection = DBConnection.getConnectionToDatabase();
-			String findUser = "select count(*) as total from user where UUID = ? and isVerified = 1";
+			String findUser = "select count(*) as total from user where UUID = ?";
 
 			PreparedStatement statement = connection.prepareStatement(findUser);
 			statement.setString(1, uuid);
@@ -76,8 +76,34 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 
+		// Returns true if greater then 0 and false if not
 		return rowsAffected > 0;
 	}
+
+
+	public boolean isValidated(String uuid) throws ClassNotFoundException {
+		// returns true if email address exists in User Table
+		int rowsReturned = 0;
+
+		try {
+			Connection connection = DBConnection.getConnectionToDatabase();
+			String findUser = "select count(*) as total from user where UUID = ? and isVerified = 1";
+
+			PreparedStatement statement = connection.prepareStatement(findUser);
+			statement.setString(1, uuid);
+			ResultSet set = statement.executeQuery();
+
+			// set the cursor to the first (and only) row of the results
+			set.next();
+			rowsReturned = set.getInt("total");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return rowsReturned > 0;
+	}
+
 
 	public boolean isValidatedByEmail(String email) throws ClassNotFoundException {
 		// returns true if email address exists in User Table and isVerified = 1
@@ -150,11 +176,44 @@ public class UserDAO {
 		User specificUser = new User();
 
 		Connection dbConnection = DBConnection.getConnectionToDatabase();
+
+
+		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE email='" + email + "'";
+
+		PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
+		ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
+
+		while (resultSetFromQuery.next()) {
+
+			specificUser.setId(resultSetFromQuery.getString("UUID"));
+			specificUser.setFirstName(resultSetFromQuery.getString("FirstName"));
+			specificUser.setLastName(resultSetFromQuery.getString("LastName"));
+			specificUser.setPassword(resultSetFromQuery.getString("Password"));
+			specificUser.setEmail(resultSetFromQuery.getString("email"));
+
+		}
+
+		dbConnection.close();
+		if (specificUser.getId() == null) {
+			return null;
+		}
+		return specificUser;
+	}
+
+	public User getUserByID(String uuid) throws SQLException, ClassNotFoundException {
+
+		User specificUser = new User();
+
+		Connection dbConnection = DBConnection.getConnectionToDatabase();
+
+		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE uuid='" + uuid + "'";
+
 		System.out.println("Get Specfic User Connected");
 
 		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE email='" + email + "'";
 
 		System.out.println("Get Specfic user query string = " + selectUserSqlQuery);
+
 
 		PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
 		ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
@@ -198,10 +257,36 @@ public class UserDAO {
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
+
 		}
 
 		return isValidUser;
 	}
+
+	public boolean updatePassword(String email, String password) {
+		int rowsAffected = 0;
+		try {
+
+			Connection dbConnection = DBConnection.getConnectionToDatabase();
+
+			String sqlQuery = "update user set password = ? where email = ?";
+
+			PreparedStatement sqlStatement = dbConnection.prepareStatement(sqlQuery);
+
+			sqlStatement.setString(1, password);
+			sqlStatement.setString(2, email);
+
+			rowsAffected = sqlStatement.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return rowsAffected > 0;
+
+		}
+    
 
 	public int updateUserDataInDatabase(String loginEmail, String firstName, String lastName, String password)
 			throws SQLException, ClassNotFoundException {
@@ -241,6 +326,7 @@ public class UserDAO {
 		int rowsAffected = sqlStatment.executeUpdate();
 		dbConnection.close();
 		return rowsAffected;
+
 
 	}
 

@@ -27,18 +27,19 @@
 
           <!-- Right-aligned login lable and input -->
           <div id="topnav-login">
-          <form action="login" method="post">
+          <form action="login" method="post" display="inline-block">
               <label>Email:</label>
               <input type="text" id="email" name="email" value="" required/> 
               <label>Password:</label>
               <input type="text" id="password" name="password" value="" required/> 
               
-              <button>Login</button>
-              </form>
-
-              <!-- <span> | </span>
-              <button>Forgot Password?</button> -->
-              
+              <button display="inline-block">Login</button>
+           </form>
+				
+			<form action="forgot-password" method="get" display="inline-block">
+				<span> | </span>
+				<button type=submit>Forgot Password?</button>
+            </form>
           </div>
 
         </div>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <% 
-	String errorMessage = (String) request.getAttribute("errorMessage");
+	String errorMessage = (String) session.getAttribute("errorMessage");
 %>
 	<p><%=errorMessage%></p>
 
