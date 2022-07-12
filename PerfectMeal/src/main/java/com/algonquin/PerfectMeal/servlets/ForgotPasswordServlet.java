@@ -21,7 +21,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// redirects to forgot password form
-		RequestDispatcher dispatcher = req.getRequestDispatcher("../html/forgot-password.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/html/forgot-password.jsp");
 		dispatcher.forward(req, resp);
 
 	}
