@@ -21,7 +21,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// redirects to forgot password form
-		RequestDispatcher dispatcher = req.getRequestDispatcher("../html/forgot-password.jsp");
+		RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/html/forgot-password.jsp");
 		dispatcher.forward(req, resp);
 
 	}
@@ -56,7 +56,8 @@ public class ForgotPasswordServlet extends HttpServlet {
 			session.setAttribute("code", code);
 			// forward to validation form
 
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/html/forgot-password-code-validation.jsp");
+			RequestDispatcher dispatcher = req.getServletContext()
+					.getRequestDispatcher("/html/forgot-password-code-validation.jsp");
 			dispatcher.forward(req, resp);
 
 		} catch (SQLException e) {

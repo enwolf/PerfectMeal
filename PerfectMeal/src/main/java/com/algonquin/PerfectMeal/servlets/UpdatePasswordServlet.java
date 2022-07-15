@@ -41,8 +41,14 @@ public class UpdatePasswordServlet extends HttpServlet {
 			resp.sendRedirect("/html/debugPage.jsp");
 		}
 
-		// redirects to update password form
-		resp.sendRedirect("../html/update-user-password.jsp");
+		// added this line instead of redirect and it seemed to fix my issues.
+		// need to better
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/html/update-user-password.jsp");
+		System.out.println("Servlet context: " + getServletContext().getContextPath());
+		System.out.println("Servlet real path: " + getServletContext().getRealPath("/html/update-user-password.jsp"));
+
+		dispatcher.forward(req, resp);
 
 	}
 
@@ -67,9 +73,12 @@ public class UpdatePasswordServlet extends HttpServlet {
 
 			dao.updatePassword(email, pw2);
 
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.html");
+			dispatcher.forward(req, resp);
+
 		} catch (Exception e) {
 			req.setAttribute("errorMessage", e.getMessage());
-			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");
+			RequestDispatcher errorDispatcher = req.getServletContext().getRequestDispatcher("/html/debugPage.jsp");
 			errorDispatcher.forward(req, resp);
 		}
 
