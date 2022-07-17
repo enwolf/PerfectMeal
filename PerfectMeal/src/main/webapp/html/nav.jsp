@@ -23,7 +23,7 @@
 
           <!-- Right-aligned login label and input -->
           <div id="topnav-login">
-          <form action="login.jsp" method="post" display="inline-block">
+          <form action="login" method="post" display="inline-block">
               <label>Email:</label>
               <input type="text" id="email" name="email" value="" required/> 
               <label>Password:</label>
@@ -32,7 +32,7 @@
               <button display="inline-block">Login</button>
            </form>
 				
-			<form action="forgot-password.jsp" method="get" display="inline-block">
+			<form action="forgot-password" method="get" display="inline-block">
 				<span> | </span>
 				<button type=submit>Forgot Password?</button>
             </form>
