@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import com.algonquin.PerfectMeal.beans.User;
 
 public class UserDAO {
@@ -80,7 +81,6 @@ public class UserDAO {
 		return rowsAffected > 0;
 	}
 
-
 	public boolean isValidated(String uuid) throws ClassNotFoundException {
 		// returns true if email address exists in User Table
 		int rowsReturned = 0;
@@ -103,7 +103,6 @@ public class UserDAO {
 
 		return rowsReturned > 0;
 	}
-
 
 	public boolean isValidatedByEmail(String email) throws ClassNotFoundException {
 		// returns true if email address exists in User Table and isVerified = 1
@@ -177,7 +176,6 @@ public class UserDAO {
 
 		Connection dbConnection = DBConnection.getConnectionToDatabase();
 
-
 		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE email='" + email + "'";
 
 		PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
@@ -210,10 +208,7 @@ public class UserDAO {
 
 		System.out.println("Get Specfic User Connected");
 
-		String selectUserSqlQuery = "SELECT * " + "FROM user " + "WHERE email='" + email + "'";
-
 		System.out.println("Get Specfic user query string = " + selectUserSqlQuery);
-
 
 		PreparedStatement sqlQueryStatement = dbConnection.prepareStatement(selectUserSqlQuery);
 		ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
@@ -285,8 +280,7 @@ public class UserDAO {
 
 		return rowsAffected > 0;
 
-		}
-    
+	}
 
 	public int updateUserDataInDatabase(String loginEmail, String firstName, String lastName, String password)
 			throws SQLException, ClassNotFoundException {
@@ -326,7 +320,6 @@ public class UserDAO {
 		int rowsAffected = sqlStatment.executeUpdate();
 		dbConnection.close();
 		return rowsAffected;
-
 
 	}
 
