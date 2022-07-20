@@ -17,10 +17,6 @@ import com.algonquin.PerfectMeal.dao.RecipeDAO;
 public class RecipeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RecipeDAO dao = new RecipeDAO();

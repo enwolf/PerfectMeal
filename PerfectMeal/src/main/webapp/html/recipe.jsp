@@ -30,32 +30,10 @@
 <title>Recipe Page</title>
 </head>
 <body>
-        <!-- Navigation Bar -->
-        <div id="topnav">
-        <span id="cornerTitle">Perfect Meal</span>
-          <!-- Centered links -->
-          <div id="topnav-centered">
-            <a href="../index.html" class="active">Home <i class="fa fa-home"></i> </a>
-            <a href="#mealPlanner">Meal Planner  <i class="fa fa-calendar" aria-hidden="true"></i> </a>
-            <a href="#contact">Contact  <i class="fa fa-envelope"></i></a>
-            <a href="#about">About <i class="fa fa-info-circle"></i></a>
-          </div>
-
-          <!-- Right-aligned login lable and input -->
-          <div id="topnav-login">
-              <lable>Username:<lable>
-              <input type="text" /> 
-              <lable>Password:<lable>
-              <input type="text" /> 
-              <button>Login</button>
-               <span> | </span>
-              <button>Forgot Password?</button>
-              
-          </div>
-
-        </div>
-        
+<!--         Navigation Bar -->
+        <jsp:include page="/html/nav.jsp" />
         <!-- Navigation Bar End-->
+        
                 <div id="wrapper">
             <div id="banner">
                 <img src="../img/foodBanner.jpg" alt="food"  > 
