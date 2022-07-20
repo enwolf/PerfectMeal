@@ -7,15 +7,13 @@ public class Recipe {
 	private String CookTime;
 	private String MealLink;
 
-	public Recipe() {
-	}
+	public Recipe(RecipeBuilder builder) {
+		this.mealID = builder.getMealID();
+		this.mealName = builder.getMealName();
+		this.description = builder.getDescription();
+		this.CookTime = builder.getCookTime();
+		this.MealLink = builder.getMealLink();
 
-	public Recipe(int mealID, String mealName, String description, String CookTime, String MealLink) {
-		this.mealID = mealID;
-		this.mealName = mealName;
-		this.description = description;
-		this.CookTime = CookTime;
-		this.MealLink = MealLink;
 	}
 
 	public void setId(int mealID) {

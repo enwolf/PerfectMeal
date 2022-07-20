@@ -6,15 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-import java.sql.Statement;
-
-
 
 import com.algonquin.PerfectMeal.beans.Recipe;
+import com.algonquin.PerfectMeal.beans.RecipeBuilder;
 
-
-public class RecipeDAO  {
+public class RecipeDAO {
 	public int insertLog(Recipe log) throws ClassNotFoundException {
 		int rowsAffected = 0;
 		try {
@@ -39,11 +35,9 @@ public class RecipeDAO  {
 
 		return rowsAffected;
 
-	} 
+	}
 
-
-
-	public List<Recipe> allLogs () throws SQLException, ClassNotFoundException {
+	public List<Recipe> allLogs() throws SQLException, ClassNotFoundException {
 		// return a log from the DB
 		Connection connection = DBConnection.getConnectionToDatabase();
 		Recipe recipe = null;
@@ -54,22 +48,22 @@ public class RecipeDAO  {
 			String sql = "select * from PerfectMeal.meal";
 
 			PreparedStatement sqlQueryStatement = connection.prepareStatement(sql);
-	    	ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
+			ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
 			while (resultSetFromQuery.next()) {
-				recipe = new Recipe();
-				recipe.setId(resultSetFromQuery.getInt("mealID"));
-				recipe.setName(resultSetFromQuery.getString("mealName"));
-				recipe.setDescription(resultSetFromQuery.getString("description"));
-				recipe.setCookTime(resultSetFromQuery.getString("cooktime"));
-				recipe.setMealLink(resultSetFromQuery.getString("meallink"));
-				recipes.add(recipe);
+				// implementation of the builder pattern
+				recipes.add(new RecipeBuilder().setMealID(resultSetFromQuery.getInt("mealID"))
+						.setName(resultSetFromQuery.getString("mealName"))
+						.setDescription(resultSetFromQuery.getString("description"))
+						.setCookTime(resultSetFromQuery.getString("cooktime"))
+						.setMealLink(resultSetFromQuery.getString("meallink")).build());
 			}
 
 		} catch (SQLException e) {
 			System.out.println("failed");
 			e.printStackTrace();
 		}
-		connection.close();;
+		connection.close();
+		;
 		return recipes;
 	}
 

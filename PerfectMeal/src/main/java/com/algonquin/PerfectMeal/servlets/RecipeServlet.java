@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.algonquin.PerfectMeal.beans.Recipe;
+import com.algonquin.PerfectMeal.beans.RecipeBuilder;
 import com.algonquin.PerfectMeal.dao.RecipeDAO;
 
 public class RecipeServlet extends HttpServlet {
@@ -41,11 +42,9 @@ public class RecipeServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String desciption = request.getParameter("description");
 
-		// create a new log object
-		Recipe log = new Recipe();
+		// create a new recipe object
+		Recipe log = new RecipeBuilder().build();
 
-		// use the application in memory object to add log to collection
-		// aim.addLog(log);
 		RecipeDAO dao = new RecipeDAO();
 		try {
 			int rows = dao.insertLog(log);
