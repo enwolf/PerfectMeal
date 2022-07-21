@@ -11,7 +11,10 @@
 <html>
 <head>
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/navBar.css">
+	<meta charset="ISO-8859-1">
+	<!-- CSS style for Navigation and Header Starts -->
+	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<!-- CSS style for Navigation and Header End -->
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">    
     <link rel="stylesheet" type="text/css" href="css/main.css">
 <meta charset="utf-8" />
@@ -30,15 +33,9 @@
 <title>Recipe Page</title>
 </head>
 <body>
-<!--         Navigation Bar -->
-        <jsp:include page="/includeFiles/nav.jsp" />
-        <!-- Navigation Bar End-->
-        
-                <div id="wrapper">
-            <div id="banner">
-                <img src="img/foodBanner.jpg" alt="food"  > 
-            <div id="textOverly">Start Planning!</div>
-        </div>
+<!--Navigation and Header Starts -->
+        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
+<!--Navigation and Header End -->
 <h1>Recipes: </h1>
     <div>
 
