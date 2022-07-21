@@ -3,6 +3,8 @@
     	pageEncoding="UTF-8"
 %>
 
+<%@page import="com.algonquin.PerfectMeal.beans.HeaderTextFactory" %>
+
 <%
 	String uri = request.getRequestURI();
 	String pageName = uri.substring(uri.lastIndexOf("/")+1);
@@ -13,9 +15,11 @@
 	out.println("uri = " + uri);
 	out.println("page name = " + pageName);
 	
+	HeaderTextFactory headerText = new HeaderTextFactory();
+	
 %>
 
 <div id="banner">
 	<img src="img/foodBanner.jpg" alt="food"  > 
-	<div id="textOverly">Start Planning!</div>
+	<div id="textOverly"><%= headerText.getHeaderText(pageName) %> </div>
 </div>
