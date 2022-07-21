@@ -16,9 +16,10 @@
 </head>
 <body>
 <!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
+        <jsp:include page="/includeFiles/nav.jsp" />
 <!--Navigation and Header End -->
 		<div id="wrapper">
+			<jsp:include page="/includeFiles/header.jsp" />
 			<div id="welcomeCard">                
 				<h1>Welcome to Perfect Meal!</h1> 
 				<img src="img/pastaDish.png" alt="food"  > 

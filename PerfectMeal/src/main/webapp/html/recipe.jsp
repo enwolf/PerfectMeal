@@ -8,7 +8,6 @@
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<html>
 <head>
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
 	<meta charset="ISO-8859-1">
@@ -34,10 +33,12 @@
 </head>
 <body>
 <!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
+	<jsp:include page="/includeFiles/nav.jsp" />
 <!--Navigation and Header End -->
-<h1>Recipes: </h1>
-    <div>
+	<div id="wrapper">
+			<jsp:include page="/includeFiles/header.jsp" />
+			<h1>Recipes: </h1>
+    	<div>
 
         	<table id="recipe">
         		<tr>
@@ -77,6 +78,7 @@
         		<%}%>
         	</table>
 
+    	</div>
     </div>  
 </body>
 </html>
