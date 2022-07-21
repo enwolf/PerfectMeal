@@ -5,16 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
-	<!-- CSS style for Navigation and Header Starts -->
-	<jsp:include page="/html/incluedCSSFile.jsp" />
-	<!-- CSS style for Navigation and Header End -->
+<meta charset="ISO-8859-1">
 <title>Forgot Password</title>
 </head>
 <body>
-<!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
-<!--Navigation and Header End -->
 
 <% User user = (User) session.getAttribute("user");%>
 
@@ -29,6 +23,9 @@
 		<input type="submit" class="formButton" value="Submit">
 	</form>
 </div>
+
+
+
 
 </body>
 </html>
