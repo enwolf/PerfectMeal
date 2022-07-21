@@ -10,11 +10,9 @@
 </head>
 <body>
 
-
-<!--	// % String userResponse = (String) (request.getAttribute("userMessage") == null ? "" : request.getAttribute("userMessage")); %> -->
-        <!-- 	Navigation Bar 			-->
-        <jsp:include page="/html/nav.jsp" />
-        <!-- 	Navigation Bar End		-->
+<!-- 	Navigation Bar 			-->
+	<jsp:include page="/includeFiles/nav.jsp" />
+<!-- 	Navigation Bar End		-->
 
 <div id="wrapper">
     <div id="wrapper2"> <!-- wrapper2 is used to format the text overlaying the image -->
