@@ -4,7 +4,8 @@
 %>
 
 <div id="topnav">
-        <span id="cornerTitle">Perfect Meal</span>
+	<span id="cornerTitle">Perfect Meal</span>
+    
     <!-- Centered links -->
     <div id="topnav-centered">
         <a href="index" class="active">Home <i class="fa fa-home"></i> </a>
