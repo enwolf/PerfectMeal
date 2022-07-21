@@ -8,7 +8,16 @@
     
     <!-- Centered links -->
     <div id="topnav-centered">
-        <a href="index" class="active">Home <i class="fa fa-home"></i> </a>
+    
+    <!-- 
+    	** Note Start
+    	 
+    	Specificily for index | Home button on nav bar, it would only work for me if I included the .jsp file extension in the href=""
+    	For the recipes link it was the opposite, and would not work if I tried to add the .jsp file extension 
+    
+    -->	
+        <a href="index.jsp" class="active">Home <i class="fa fa-home"></i> </a>
+    <!-- Note End** -->    
         <a href="recipes">Meal Planner  <i class="fa fa-calendar" aria-hidden="true"></i> </a>
         <a href="#contact">Contact  <i class="fa fa-envelope"></i></a>
 		<a href="#about">About <i class="fa fa-info-circle"></i></a>

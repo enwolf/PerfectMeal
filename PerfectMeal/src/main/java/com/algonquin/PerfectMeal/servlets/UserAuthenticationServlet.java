@@ -42,7 +42,7 @@ public class UserAuthenticationServlet extends HttpServlet {
 			}
 
 			// go back to index page
-			RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/index.html");
+			RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/index.jsp");
 			dispatcher.forward(req, resp);
 
 		} catch (Exception e) {
