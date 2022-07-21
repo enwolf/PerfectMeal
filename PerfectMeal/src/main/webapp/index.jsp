@@ -17,13 +17,8 @@
 </head>
 <body>
 <!--Navigation Bar Starts -->
-        <jsp:include page="/includeFiles/nav.jsp" />
+        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
 <!-- Navigation Bar End	-->
-        <div id="wrapper">
-            <div id="banner">
-                <img src="img/foodBanner.jpg" alt="food"  > 
-            <div id="textOverly">Start Planning!</div>
-        </div>
 <div id="wrapper">
             
             <div id="welcomeCard">
