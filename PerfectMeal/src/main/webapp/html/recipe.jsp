@@ -31,7 +31,7 @@
 </head>
 <body>
 <!--         Navigation Bar -->
-        <jsp:include page="/html/nav.jsp" />
+        <jsp:include page="/includeFiles/nav.jsp" />
         <!-- Navigation Bar End-->
         
                 <div id="wrapper">
