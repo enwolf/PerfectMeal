@@ -3,7 +3,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/navBar.css">
+   	<meta charset="ISO-8859-1">
+	<!-- CSS style for Navigation and Header Starts -->
+	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<!-- CSS style for Navigation and Header End -->
     <link rel="stylesheet" type="text/css" href="css/registration.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"> 
   <title>Registration Form</title>
@@ -20,6 +23,7 @@
             <img src="img/foodBanner.jpg" alt="food"  > 
         <div id="textOverly">Register Now!</div>
     </div>
+    <!- TODO will have to update this code later once I figure out how to dynamicly change the text on the banner. --> 
 
     <div id="header">
         <header>
