@@ -104,6 +104,16 @@
   	<servlet-name>DeleteUserServlet</servlet-name>
   	<url-pattern>/delete</url-pattern>
   </servlet-mapping>  
+
+<servlet>
+  	<servlet-name>RecipeServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.RecipeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>RecipeServlet</servlet-name>
+  	<url-pattern>/recipes</url-pattern>
+  </servlet-mapping>  
   
   
   

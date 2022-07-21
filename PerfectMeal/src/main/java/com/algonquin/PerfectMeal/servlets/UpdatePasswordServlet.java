@@ -73,7 +73,7 @@ public class UpdatePasswordServlet extends HttpServlet {
 
 			dao.updatePassword(email, pw2);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.html");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 			dispatcher.forward(req, resp);
 
 		} catch (Exception e) {
