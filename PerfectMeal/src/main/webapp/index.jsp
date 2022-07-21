@@ -1,22 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" 
+		contentType="text/html; charset=ISO-8859-1"
+    	pageEncoding="ISO-8859-1"
+%>
     
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/navBar.css">
+    <!-- incluedCSSFileLinks.jsp hold links to common CSS styles sheets -->
+	<jsp:include page="/html/incluedCSSFile.jsp" />
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">    
     <link rel="stylesheet" type="text/css" href="css/main.css">
 <meta charset="utf-8" />
 <title>Home Page</title>
 </head>
 <body>
-<!--         Navigation Bar -->
-        <jsp:include page="/html/nav.jsp" />
-        <!-- Navigation Bar End-->
-                <div id="wrapper">
+<!--Navigation Bar Starts -->
+        <jsp:include page="/includeFiles/nav.jsp" />
+<!-- Navigation Bar End	-->
+        <div id="wrapper">
             <div id="banner">
                 <img src="img/foodBanner.jpg" alt="food"  > 
             <div id="textOverly">Start Planning!</div>
