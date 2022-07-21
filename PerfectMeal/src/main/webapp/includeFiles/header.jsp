@@ -3,8 +3,19 @@
     	pageEncoding="UTF-8"
 %>
 
-<div id="wrapper">
-	<div id="banner">
-		<img src="img/foodBanner.jpg" alt="food"  > 
+<%
+	String uri = request.getRequestURI();
+	String pageName = uri.substring(uri.lastIndexOf("/")+1);
+	
+	System.out.println("uri = " + uri);
+	System.out.println("page name = " + pageName);
+	
+	out.println("uri = " + uri);
+	out.println("page name = " + pageName);
+	
+%>
+
+<div id="banner">
+	<img src="img/foodBanner.jpg" alt="food"  > 
 	<div id="textOverly">Start Planning!</div>
 </div>
