@@ -12,18 +12,12 @@
   <title>Registration Form</title>
 </head>
 <body>
-
-<!-- 	Navigation Bar 			-->
-	<jsp:include page="/includeFiles/nav.jsp" />
-<!-- 	Navigation Bar End		-->
-
+<!--Navigation and Header Starts -->
+        <jsp:include page="/includeFiles/nav.jsp" />
+<!--Navigation and Header End -->
 <div id="wrapper">
-    <div id="wrapper2"> <!-- wrapper2 is used to format the text overlaying the image -->
-        <div id="banner">
-            <img src="img/foodBanner.jpg" alt="food"  > 
-        <div id="textOverly">Register Now!</div>
-    </div>
-    <!- TODO will have to update this code later once I figure out how to dynamicly change the text on the banner. --> 
+<jsp:include page="/includeFiles/header.jsp" />
+    
 
     <div id="header">
         <header>
