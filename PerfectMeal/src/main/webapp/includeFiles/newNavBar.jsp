@@ -32,7 +32,7 @@
 					<form action="/action_page.php">
 						<input type="text" placeholder="email.." name="search">
 						<input type="text" placeholder="password.." name="search">
-						<button type="submit">Login</button>
+						<button id="loginBtn" type="submit">Login</button>
 					</form>
 				</div>
 			</nav>
