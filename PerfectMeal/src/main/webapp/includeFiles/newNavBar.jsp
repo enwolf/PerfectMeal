@@ -29,9 +29,9 @@
 		<div id="sideNavBar">
 			<nav class="topnav">
 				<div class="search-container">
-					<form action="/action_page.php">
-						<input type="text" placeholder="email.." name="search">
-						<input type="text" placeholder="password.." name="search">
+					<form action="login" method="post">
+						<input type="text" placeholder="email.." name="email" required>
+						<input type="text" placeholder="password.." name="password" required>
 						<button id="loginBtn" type="submit">Login</button>
 					</form>
 				</div>
@@ -39,12 +39,12 @@
 			<nav class="topnav">
 			  <div class="search-container">
 					<div id="signUp">
-						<form action="/action_page.php">
+						<form action="forgot-password" method="get" >
 							<button class="noStyleBtn" type="submit">Forgot Password?</button>
 						</form>
 					</div> 			    
 					<div id="forgot">
-					    <form action="/action_page.php">
+					    <form action="signup" method="get">
 					      <button class="noStyleBtn" type="submit">Don't have an account? | Sign-Up Now</button>
 					    </form>
 					</div>
