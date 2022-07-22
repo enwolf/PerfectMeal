@@ -27,8 +27,9 @@
 			</div>
 			<div id="newUserCard">
 				<div id="newUserHeader">
-					<h1>Don't have an Account? </h1>
-			        <h2>Sign up today!!</h2>
+					<h1>Join Today </h1><br>
+					<br>
+			        <h2>Sign up Here!!</h2>
 			     </div>
 				<form action="signup" method="get">
 				    <button id="newUserCallToAction" > Click Here - Join Now!</button>
