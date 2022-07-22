@@ -35,7 +35,7 @@ body{
 
 
 #welcomeCard h1{
-    
+    font-family:arial;
     font-size: 70px;
     vertical-align:text-top;
 }
@@ -185,20 +185,27 @@ body{
 #contentCard h2 {
     color: black;
     font-size: 50px;
+    padding-bottom:1%;
+    text-align: left;
+    font-family:arial;
     
 }
 
 #contentCard  img{
     
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 60%;
     text-align:center;
     border: 3px solid lightYellow;
     border-radius: 15px 50px 30px;
     
 }
+
 #contentCard p{
+	
     padding: 10px;
+    padding-top:1%;
+    
     text-align:left;   
     font-size: 22px;
 }
