@@ -6,17 +6,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="utf-8" />
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
     <!-- incluedCSSFileLinks.jsp hold links to common CSS styles sheets -->
 	<jsp:include page="/html/incluedCSSFile.jsp" />
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">    
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-<meta charset="utf-8" />
 <title>Home Page</title>
 </head>
 <body>
 <!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/nav.jsp" />
+        <jsp:include page="/includeFiles/newNavBar.jsp" />
 <!--Navigation and Header End -->
 		<div id="wrapper">
 			<jsp:include page="/includeFiles/header.jsp" />
