@@ -13,7 +13,7 @@
 </head>
 <body>
 <!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/nav.jsp" />
+        <jsp:include page="/includeFiles/newNavBar.jsp" />
 <!--Navigation and Header End -->
 <div id="wrapper">
 <jsp:include page="/includeFiles/header.jsp" />

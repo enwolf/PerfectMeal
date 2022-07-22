@@ -4,5 +4,5 @@
 %>
 
 
-<jsp:include page="/includeFiles/nav.jsp" />
+<jsp:include page="/includeFiles/newNavBar.jsp" />
 <jsp:include page="/includeFiles/header.jsp" />
