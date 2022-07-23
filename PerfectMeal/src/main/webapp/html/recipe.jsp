@@ -6,6 +6,7 @@
 <%@page import="com.algonquin.PerfectMeal.dao.DBConnection" %>
 <%@ page import="java.util.*"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Calendar"%>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <html>
@@ -16,9 +17,8 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta charset="utf-8" />
     <style>
-      table,
-      table td {
-        border: 1px solid #cccccc;
+      table, th, td {
+        border: 1px solid #c0f7b2;
       }
       td {
         height: 80px;
@@ -26,6 +26,46 @@
         text-align: center;
         vertical-align: middle;
       }
+      
+#recipe {  	
+				margin-left: auto;
+  				margin-right: auto;
+ }
+      
+.randomButton {
+	background-color: #c0f7b2;
+	border: 2px solid ##555555;
+	border-radius: 12px;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.randomButton:hover {background-color: #3e8e41}
+.randomButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+div.recipeHeading {
+	text-align: center;
+}
+
+div.recipeTable {
+	text-align: center;
+}
+
+div.randomizeButton {
+	text-align: center;
+}
+
+
     </style>
 <title>Recipe Page</title>
 </head>
@@ -34,13 +74,27 @@
         <jsp:include page="/html/nav.jsp" />
         <!-- Navigation Bar End-->
         
+        <!--  DEFINE DAY OF WEEK -->
+            <script type="text/javascript">
+        var myDate = new Date();
+        var myDay = myDate.getDay();
+        
+        // Array of days.
+        var weekday = ['Sunday', 'Monday', 'Tuesday',
+            'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ];
+        </script>
+        <!--  DAY OF WEEK END -->
+        
                 <div id="wrapper">
             <div id="banner">
                 <img src="../img/foodBanner.jpg" alt="food"  > 
             <div id="textOverly">Start Planning!</div>
         </div>
-<h1>Recipes: </h1>
-    <div>
+        <div class="recipeHeading">
+<h1>Plan Your Meals!</h1>
+		</div>
+    <div class="recipeTable">
 
         	<table id="recipe">
         		<tr>
@@ -49,6 +103,7 @@
         			<th>Description</th>
         			<th>Cook Time</th>
         			<th>Meal Link</th>
+        			<th>Day Of Week</th>
         		</tr>
         		<%
         	
@@ -56,7 +111,7 @@
 		myDBConn.getConnectionToDatabase();		
 		RecipeDAO myDAO = new RecipeDAO();
 		List<Recipe> recipeList = new ArrayList<Recipe>();
-		recipeList = myDAO.allLogs();
+		recipeList = myDAO.randomRecipes();
 		for (int i = 0; i < recipeList.size(); i++) {
         		%>
         		<tr>
@@ -75,11 +130,20 @@
         			<td>
         				<%=recipeList.get(i).getMealLink()%>
         			</td>
+        			<td>
+        			<script type="text/javascript">       			
+        			document.write(weekday[myDay]);
+        			</script>
+        			</td>
         		</tr>
 
         		<%}%>
         	</table>
-
-    </div>  
+        	    </div> 
+        	    
+        	<div class="randomizeButton">
+        	<button class="randomButton" onClick="window.location.reload();">Randomize Recipes!</button>
+			</div> 
+			
 </body>
 </html>
