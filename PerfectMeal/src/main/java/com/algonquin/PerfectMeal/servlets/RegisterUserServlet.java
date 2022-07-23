@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.algonquin.PerfectMeal.beans.User;
 import com.algonquin.PerfectMeal.dao.UserDAO;
@@ -26,6 +27,7 @@ public class RegisterUserServlet extends HttpServlet {
 
 		// create user DAO
 		UserDAO dao = new UserDAO();
+		HttpSession session = req.getSession();
 
 		// create new user
 		User user = new User();
@@ -37,11 +39,13 @@ public class RegisterUserServlet extends HttpServlet {
 		try {
 			// check if passwords are equal
 			if (!pw1.equals(pw2)) {
+				System.out.println("unmatched passwords error");
 				throw new Exception("Passwords do not match.  Try again.");
 			}
 
 			// check if user exists
 			if (dao.userExists(email)) {
+				System.out.println("user exists error");
 				throw new Exception("User already exists.  Try another email address.");
 			}
 
@@ -59,7 +63,7 @@ public class RegisterUserServlet extends HttpServlet {
 			// print out validation token to console. Use this for validation.
 			// TODO: add this token to an email URL or general email to use in future
 			// release
-			System.out.println(user.getId());
+			System.out.println("Code: " + user.getId());
 
 			// need to redirect instead of forward because we want a GET request to be
 			// triggered (original was a POST).
@@ -68,8 +72,9 @@ public class RegisterUserServlet extends HttpServlet {
 		} catch (Exception e) {
 
 			// forward to error page for debugging
-			req.setAttribute("errorMessage", e.getMessage());
-			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");
+			System.out.println(e.getMessage());
+			session.setAttribute("errorMessage", e.getMessage());
+			RequestDispatcher errorDispatcher = req.getServletContext().getRequestDispatcher("/html/debugPage.jsp");
 			errorDispatcher.forward(req, resp);
 		}
 

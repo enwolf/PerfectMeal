@@ -22,7 +22,6 @@
   	<url-pattern>/signup</url-pattern>
   </servlet-mapping>
   
-  
   <servlet>
   	<servlet-name>UserAuthenticationServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.UserAuthenticationServlet</servlet-class>
@@ -33,5 +32,94 @@
   	<url-pattern>/verify-email</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>ForgotPasswordServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.ForgotPasswordServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ForgotPasswordServlet</servlet-name>
+  	<url-pattern>/forgot-password</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdatePasswordServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdatePasswordServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdatePasswordServlet</servlet-name>
+  	<url-pattern>/update-password</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>  
+
+  
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping> 
+  
+  
+  <servlet>
+  	<servlet-name>UserProfileServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UserProfileServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UserProfileServlet</servlet-name>
+  	<url-pattern>/userProfile</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>UpdateUserProfileServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdateUserProfileServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateUserProfileServlet</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
+  
+<servlet>
+  	<servlet-name>DeleteUserServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.DeleteUserServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteUserServlet</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>  
+
+<servlet>
+  	<servlet-name>RecipeServlet</servlet-name>
+  	<servlet-class>com.algonquin.PerfectMeal.servlets.RecipeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>RecipeServlet</servlet-name>
+  	<url-pattern>/recipes</url-pattern>
+  </servlet-mapping>  
+  
+  
+  
+  
+  
+  
+
   
 </web-app>

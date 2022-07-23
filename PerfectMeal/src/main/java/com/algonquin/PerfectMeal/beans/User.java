@@ -2,19 +2,20 @@ package com.algonquin.PerfectMeal.beans;
 
 public class User {
 
-	private String id;
+	private String ID;
 	private String userName;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private String email;
+	private int isVarified;
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String ID) {
+		this.ID = ID;
 	}
 
 	public String getId() {
-		return id;
+		return ID;
 	}
 
 	public String getUserName() {
@@ -56,5 +57,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public int getIsVarified() {
+		return isVarified;
+	}
 
+	public void setIsVarified(int isVarified) {
+		this.isVarified = isVarified;
+	}
 }

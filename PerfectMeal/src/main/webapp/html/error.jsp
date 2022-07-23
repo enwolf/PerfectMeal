@@ -14,7 +14,7 @@
         <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
 <!--Navigation and Header End -->
 <% 
-	String errorMessage = (String) session.getAttribute("errorMessage");
+	String errorMessage = (String) request.getAttribute("errorMessage");
 %>
 	<p><%=errorMessage%></p>
 

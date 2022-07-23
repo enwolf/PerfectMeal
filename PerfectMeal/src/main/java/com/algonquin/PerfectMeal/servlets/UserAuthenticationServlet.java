@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.algonquin.PerfectMeal.dao.UserDAO;
 
+// /verify-email  
 public class UserAuthenticationServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// redirects to registerUserForm
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/html/userAuthentication.jsp");
+		RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/html/userAuthentication.jsp");
 		dispatcher.forward(req, resp);
 
 	}
@@ -31,22 +32,25 @@ public class UserAuthenticationServlet extends HttpServlet {
 		String validationCode = req.getParameter("validationCode");
 
 		try {
-
+			// user is already validate
+			if (dao.isValidated(validationCode)) {
+				throw new Exception("User already validated.");
+			}
 			// user does not exist
 			if (dao.validateUser(validationCode) == 0) {
 				throw new Exception("User not found.");
 			}
 
-			// user is already validate
-			if (dao.isValidated(validationCode)) {
-				throw new Exception("User already validated.");
-			}
+			// go back to index page
+			RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/index.jsp");
+			dispatcher.forward(req, resp);
 
 		} catch (Exception e) {
 
 			// send error to debug page
 			req.setAttribute("errorMessage", e.getMessage());
-			RequestDispatcher errorDispatcher = req.getRequestDispatcher("/html/debugPage.jsp");
+
+			RequestDispatcher errorDispatcher = req.getServletContext().getRequestDispatcher("/html/debugPage.jsp");
 			errorDispatcher.forward(req, resp);
 		}
 

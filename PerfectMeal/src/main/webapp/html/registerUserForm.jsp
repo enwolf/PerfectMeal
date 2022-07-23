@@ -3,48 +3,21 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/navBar.css">
+   	<meta charset="ISO-8859-1">
+	<!-- CSS style for Navigation and Header Starts -->
+	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<!-- CSS style for Navigation and Header End -->
     <link rel="stylesheet" type="text/css" href="css/registration.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"> 
   <title>Registration Form</title>
 </head>
 <body>
-
-
-<!--	// % String userResponse = (String) (request.getAttribute("userMessage") == null ? "" : request.getAttribute("userMessage")); %> -->
-        <!-- Navigation Bar -->
-        <div id="topnav">
-        <span id="cornerTitle">Perfect Meal</span>
-          <!-- Centered links -->
-          <div id="topnav-centered">
-            <a href="index.html" class="active">Home <i class="fa fa-home"></i> </a>
-            <a href="#mealPlanner">Meal Planner  <i class="fa fa-calendar" aria-hidden="true"></i> </a>
-            <a href="#contact">Contact  <i class="fa fa-envelope"></i></a>
-            <a href="#about">About <i class="fa fa-info-circle"></i></a>
-          </div>
-
-          <!-- Right-aligned login lable and input -->
-          <div id="topnav-login">
-              <lable>Username:<lable>
-              <input type="text" /> 
-              <lable>Password:<lable>
-              <input type="text" /> 
-              <button>Login</button>
-               <span> | </span>
-              <button>Forgot Password?</button>
-              
-          </div>
-
-        </div>
-        
-        <!-- Navigation Bar End-->
-
+<!--Navigation and Header Starts -->
+        <jsp:include page="/includeFiles/newNavBar.jsp" />
+<!--Navigation and Header End -->
 <div id="wrapper">
-    <div id="wrapper2">
-        <div id="banner">
-            <img src="img/foodBanner.jpg" alt="food"  > 
-        <div id="textOverly">Register Now!</div>
-    </div>
+<jsp:include page="/includeFiles/header.jsp" />
+    
 
     <div id="header">
         <header>
