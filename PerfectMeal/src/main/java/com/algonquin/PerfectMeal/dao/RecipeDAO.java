@@ -42,7 +42,7 @@ public class RecipeDAO  {
 	} 
 
 
-
+	// Return 9 all recipes from the database	
 	public List<Recipe> allLogs () throws SQLException, ClassNotFoundException {
 		// return a log from the DB
 		Connection connection = DBConnection.getConnectionToDatabase();
@@ -73,4 +73,34 @@ public class RecipeDAO  {
 		return recipes;
 	}
 
+// Return 9 random recipes from the database	
+	public List<Recipe> randomRecipes () throws SQLException, ClassNotFoundException {
+		// return a log from the DB
+		Connection connection = DBConnection.getConnectionToDatabase();
+		Recipe recipe = null;
+		List<Recipe> recipes = new ArrayList<Recipe>();
+
+		try {
+
+			String sql = "SELECT * FROM PerfectMeal.MEAL ORDER BY RAND ( ) LIMIT 9";
+
+			PreparedStatement sqlQueryStatement = connection.prepareStatement(sql);
+	    	ResultSet resultSetFromQuery = sqlQueryStatement.executeQuery();
+			while (resultSetFromQuery.next()) {
+				recipe = new Recipe();
+				recipe.setId(resultSetFromQuery.getInt("mealID"));
+				recipe.setName(resultSetFromQuery.getString("mealName"));
+				recipe.setDescription(resultSetFromQuery.getString("description"));
+				recipe.setCookTime(resultSetFromQuery.getString("cooktime"));
+				recipe.setMealLink(resultSetFromQuery.getString("meallink"));
+				recipes.add(recipe);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("failed");
+			e.printStackTrace();
+		}
+		connection.close();;
+		return recipes;
+	}
 }
