@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.algonquin.PerfectMeal.beans.NewUserCreatedObserver;
 import com.algonquin.PerfectMeal.beans.User;
-import com.algonquin.PerfectMeal.dao.UserDAO;
+import com.algonquin.PerfectMeal.dao.RegisterUserProxyDAO;
 
 public class RegisterUserServlet extends HttpServlet {
 
@@ -25,8 +26,11 @@ public class RegisterUserServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// create user DAO
-		UserDAO dao = new UserDAO();
+		// create ProxyUserDAO
+		RegisterUserProxyDAO proxyDAO = new RegisterUserProxyDAO();
+		// create NewUserCreatedObsverer
+		NewUserCreatedObserver newUserObserver = new NewUserCreatedObserver(proxyDAO);
+
 		HttpSession session = req.getSession();
 
 		// create new user
@@ -44,7 +48,7 @@ public class RegisterUserServlet extends HttpServlet {
 			}
 
 			// check if user exists
-			if (dao.userExists(email)) {
+			if (proxyDAO.userExists(email)) {
 				System.out.println("user exists error");
 				throw new Exception("User already exists.  Try another email address.");
 			}
@@ -58,13 +62,11 @@ public class RegisterUserServlet extends HttpServlet {
 			user.setPassword(pw2);
 
 			// create the user in the Database
-			dao.createUser(user);
+			proxyDAO.createUser(user);
 
 			// print out validation token to console. Use this for validation.
 			// TODO: add this token to an email URL or general email to use in future
 			// release
-			System.out.println("Code: " + user.getId());
-
 			// need to redirect instead of forward because we want a GET request to be
 			// triggered (original was a POST).
 			resp.sendRedirect("verify-email");
