@@ -29,7 +29,8 @@ public class RegisterUserServlet extends HttpServlet {
 		// create ProxyUserDAO
 		RegisterUserProxyDAO proxyDAO = new RegisterUserProxyDAO();
 		// create NewUserCreatedObsverer
-		NewUserCreatedObserver newUserObserver = new NewUserCreatedObserver(proxyDAO);
+		NewUserCreatedObserver newUserObserver = new NewUserCreatedObserver();
+		proxyDAO.registerObserver(newUserObserver);
 
 		HttpSession session = req.getSession();
 
