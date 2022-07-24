@@ -6,7 +6,8 @@ public class HeaderTextFactory {
 
 	}
 
-	// base header and maybe userHeader or loginHeader object that holds current users login value?
+	// base header and maybe userHeader or loginHeader object that holds current
+	// users login value?
 	// Dispatch each as needed as a way to more properly implement this pattern.
 
 	public static String getHeaderTextObj(String pageName) {
@@ -32,7 +33,7 @@ public class HeaderTextFactory {
 			headerText = "Meal Planning";
 			break;
 		case "registerUserForm.jsp":
-			headerText = "Please Registar";
+			headerText = "Please Register";
 			break;
 		case "login.jsp":
 			headerText = "Logged In";
@@ -56,11 +57,11 @@ public class HeaderTextFactory {
 			headerText = "Enter Recovery Code";
 			break;
 		case "update-user-password.jsp":
-			headerText = "Confrim Password";
+			headerText = "Confirm Password";
 			break;
 		case "debugPage.jsp":
 		case "errorPage.jsp":
-			headerText = "Error: Somthing went wrong";
+			headerText = "Error: Something went wrong";
 			break;
 		default:
 			// code block
