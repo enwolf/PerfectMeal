@@ -25,6 +25,10 @@ public class RegisterUserProxyDAO implements Subject {
 		notifyObservers();
 	}
 
+	public boolean userExists(String emailAddress) throws ClassNotFoundException {
+		return userDAO.userExists(emailAddress);
+	}
+
 	@Override
 	public void registerObserver(Observer o) {
 		observers.add(o);
