@@ -3,12 +3,6 @@ package com.algonquin.PerfectMeal.beans;
 public class NewUserCreatedObserver implements Observer {
 
 	private final String fromAddress = "validate@fake.fake";
-	private Subject registerUserProxyDAO;
-
-	public NewUserCreatedObserver(Subject registerUserProxyDAO) {
-		this.registerUserProxyDAO = registerUserProxyDAO;
-		registerUserProxyDAO.registerObserver(this);
-	}
 
 	@Override
 	public void dispachNewUserVarificationEmail(User user) {
