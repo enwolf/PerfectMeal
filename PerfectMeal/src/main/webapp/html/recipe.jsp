@@ -6,6 +6,7 @@
 <%@page import="com.algonquin.PerfectMeal.dao.DBConnection" %>
 <%@ page import="java.util.*"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.time.DayOfWeek"%>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,7 +20,8 @@
 <meta charset="utf-8" />
 <style>
       table, th, td {
-        border: 1px solid #c0f7b2;
+      	border-collapse: collapse;
+          
       }
       td {
         height: 80px;
@@ -62,6 +64,8 @@ div.randomizeButton {
 	text-align: center;
 }
 
+.odd{background-color:#c0f7b2}
+.even{background-color:rgb(122, 210, 126)}
 
     </style>
 <title>Recipe Page</title>
@@ -71,24 +75,12 @@ div.randomizeButton {
 	<jsp:include page="/includeFiles/newNavBar.jsp" />
 <!--Navigation and Header End -->
 
-        <!--  DEFINE DAY OF WEEK -->
-            <script type="text/javascript">
-        var myDate = new Date();
-        var myDay = myDate.getDay();
-        
-        // Array of days.
-        var weekday = ['Sunday', 'Monday', 'Tuesday',
-            'Wednesday', 'Thursday', 'Friday', 'Saturday'
-        ];
-        </script>
-        <!--  DAY OF WEEK END -->
-
 	<div id="wrapper">
 			<jsp:include page="/includeFiles/header.jsp" />
     <div class="recipeTable">
 
         	<table id="recipe">
-        		<tr>
+        		<tr class="even">
         			<th>RecipeID</th>
         			<th>Name</th>
         			<th>Description</th>
@@ -103,10 +95,19 @@ div.randomizeButton {
 		RecipeDAO myDAO = new RecipeDAO();
 		List<Recipe> recipeList = new ArrayList<Recipe>();
 		recipeList = myDAO.randomRecipes();
+		String tableRow;
 		for (int i = 0; i < recipeList.size(); i++) {
-//			if { i/2==0 
+			
+				//set day of week
+	        DayOfWeek[] dayOfWeeks = DayOfWeek.values();
+	            DayOfWeek dayOfWeek = dayOfWeeks[i];
+	            
+	            //set color for table rows
+	            if (i%2==0)
+	            {tableRow="odd";}
+	            else {tableRow="even";}
         		%>
-        		<tr class="tableRow">		
+        		<tr class="<%=tableRow%>">		
         			<td>
         				<%=recipeList.get(i).getId()%>
         			</td>
@@ -116,16 +117,14 @@ div.randomizeButton {
         			<td>
         				<%=recipeList.get(i).getDescription()%>
         			</td>
-        			<td>
+        			<td	>
         				<%=recipeList.get(i).getCookTime()%>
         			</td>
         			<td>
         				<%=recipeList.get(i).getMealLink()%>
         			</td>
         			<td>
-        			<script type="text/javascript">       			
-        			document.write(weekday[myDay]);
-        			</script>
+        				<%=dayOfWeek%>
         			</td>
         		</tr>
 
