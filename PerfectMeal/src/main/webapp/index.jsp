@@ -23,7 +23,7 @@
 			<div id="welcomeCard">                
 				<h1>Welcome to Perfect Meal!</h1> 
 				<img src="img/pastaDish.png" alt="food"  > 
-				<p>Curabitur fringilla molestie nibh at egestas. Praesent et mollis lorem. Duis sit amet ligula sit amet mi hendrerit rutrum ac ut nulla. Sed blandit neque tortor, ac congue orci ullamcorper eu. Duis et urna quis arcu interdum maximus. Suspendisse bibendum, velit eget blandit posuere, nulla quam rhoncus lacus, vel posuere lectus dolor quis magna. Cras eleifend eros ac lacus blandit, nec volutpat urna varius. Mauris ultricies arcu a luctus sagittis.d</p>
+				<p>Curabitur fringilla molestie nibh at egestas. Praesent et mollis lorem. Duis sit amet ligula sit amet mi hendrerit rutrum ac ut nulla. Sed blandit neque tortor, ac congue orci ullamcorper eu. Duis et urna quis arcu interdum maximus. Suspendisse bibendum, velit eget blandit posuere, nulla quam rhoncus lacus, vel posuere lectus dolor quis magna. Cras eleifend eros ac lacus blandit, nec volutpat urna varius. Mauris ultricies arcu a luctus sagittis.</p>
 			</div>
 			<div id="newUserCard">
 				<div id="newUserHeader">

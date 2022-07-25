@@ -55,6 +55,7 @@ body{
     font-size: 22px;
     padding-top: 3%;
     padding-bottom: 6%;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -67,7 +68,8 @@ body{
     padding: 10px;
     float:right;
     background: #a4dcfc;
-    padding-bottom: 61.7%; /* remove this to stink whole box*/
+	/* remove this to shrink whole box this is how you align welcomeCard and NewUserCard along the bottom.*/
+    padding-bottom: 65.4%;
     border-radius: 25px 0px 0px 25px;
     
 }
@@ -75,10 +77,7 @@ body{
 #newUserHeader{
 	top: 3%;
     position: absolute;
-    font-family:arial;
-       
-       
-        
+	font-family: Arial, Helvetica, sans-serif;        
 }
 
 #newUserHeader h1, h2{
@@ -106,15 +105,14 @@ body{
     font-style:italic;
     font-weight:bold;
     background-color: rgb(49, 177, 232);
-	
-    color: white;
+	color: white;
     
        
 }
 
 #newUserCallToAction:hover{
 	background-color: blue ;
-	 color: rgb(248, 252, 0);
+	color: rgb(248, 252, 0);
 }
 /* this abosulute positioning work well. */
 #newUserCardImage {
@@ -197,7 +195,7 @@ body{
 	
     padding: 10px;
     padding-top:1%;
-    
+    font-family: Arial, Helvetica, sans-serif;
     text-align:left;   
     font-size: 22px;
 }
