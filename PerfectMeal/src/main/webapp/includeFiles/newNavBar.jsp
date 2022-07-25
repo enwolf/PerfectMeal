@@ -19,11 +19,11 @@
             <button class="linkButton"> <a class="anchorHover" href="recipes"><i class="fa fa-calendar" aria-hidden="true"></i> Meal Planner</a> </button>
         </div>
         <div class="buttonHolder">
-            <button class="linkButton"><a class="anchorHover" href="contact.html"><i class="fa fa-envelope"></i> Contact Us</a></button>
+            <button class="linkButton"><a class="anchorHover" href="#"><i class="fa fa-envelope"></i> Contact Us</a></button>
         </div>
 
         <div class="buttonHolder">
-            <button class="linkButton"><a class="anchorHover" href="aboutme.html"><i class="fa fa-info-circle"></i> About</a></button>
+            <button class="linkButton"><a class="anchorHover" href="#"><i class="fa fa-info-circle"></i> About</a></button>
         </div>
 
 		<div id="sideNavBar">
