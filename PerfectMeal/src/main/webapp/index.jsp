@@ -9,7 +9,7 @@
 	<meta charset="utf-8" />
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
     <!-- incluedCSSFileLinks.jsp hold links to common CSS styles sheets -->
-	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<jsp:include page="/includeFiles/incluedCSSFile.jsp" />
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Home Page</title>

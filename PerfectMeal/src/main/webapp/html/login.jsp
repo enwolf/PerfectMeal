@@ -7,14 +7,18 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<!-- CSS style for Navigation and Header Starts -->
-		<jsp:include page="/html/incluedCSSFile.jsp" />
+	<jsp:include page="/includeFiles/incluedCSSFile.jsp" />
 	<!-- CSS style for Navigation and Header End -->
-<title>Login Page</title>
+	<title>Login</title>
 </head>
-	<body>
-	<!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
-	<!--Navigation and Header End -->
+<body>
+      	
+<!--Navigation and Header Starts -->
+<jsp:include page="/includeFiles/newNavBar.jsp" />
+	<div id="wrapper">
+	
+		<jsp:include page="/includeFiles/header.jsp" />
+		<!--Navigation and Header END-->
 		<h1>You have logged in!</h1>
 		<h2>Name: <%= request.getAttribute("firstName")%> <%= request.getAttribute("lastName") %> </h2>	
 		<h2>Email: <%= request.getAttribute("userEmail") %></h2>
@@ -30,6 +34,6 @@
  
               <button>Logout</button>
         </form>
-        
-	</body>
+    </div>
+</body>
 </html>

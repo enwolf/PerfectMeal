@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body{
+    background-color: lightYellow;
+}
+
+#wrapper{
+    
+    margin: auto;
+    max-width: 1500px;
+    background-color:lightYellow;
+}
+

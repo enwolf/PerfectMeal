@@ -9,25 +9,30 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<!-- CSS style for Navigation and Header Starts -->
-	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<jsp:include page="/includeFiles/incluedCSSFile.jsp" />
 	<!-- CSS style for Navigation and Header End -->
-<title>Verify Email</title>
+	<title>User Validation</title>
 </head>
 <body>
+      	
 <!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
-<!--Navigation and Header End -->
+<jsp:include page="/includeFiles/newNavBar.jsp" />
+	<div id="wrapper">
+	
+		<jsp:include page="/includeFiles/header.jsp" />
+		<!--Navigation and Header END-->
 
 <% User user = (User) request.getAttribute("user"); %>
 
-	<p>An email was sent to @email.com <br> Please check your email and enter the code into the dialog box below </p>
-
-	<div>
-		<form id="email-validation-form" action="verify-email" method="post">
-			<label>Input Code: </label>
-	        <input type="text" id="validationCode" name="validationCode" required>
-			<input type="submit" class="formButton" value="Submit">
-		</form>
+		<p>An email was sent to @email.com <br> Please check your email and enter the code into the dialog box below </p>
+	
+		<div>
+			<form id="email-validation-form" action="verify-email" method="post">
+				<label>Input Code: </label>
+		        <input type="text" id="validationCode" name="validationCode" required>
+				<input type="submit" class="formButton" value="Submit">
+			</form>
+		</div>
 	</div>
 </body>
 </html>
