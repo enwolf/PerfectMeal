@@ -69,7 +69,7 @@ body{
     float:right;
     background: #a4dcfc;
 	/* remove this to shrink whole box this is how you align welcomeCard and NewUserCard along the bottom.*/
-    padding-bottom: 65.4%;
+    padding-bottom: 65.31%;
     border-radius: 25px 0px 0px 25px;
     
 }

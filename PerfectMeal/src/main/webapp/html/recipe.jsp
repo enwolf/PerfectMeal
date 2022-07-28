@@ -21,6 +21,8 @@
 <style>
       table, th, td {
       	border-collapse: collapse;
+      	font-family: Arial, Helvetica, sans-serif;
+      	
           
       }
       td {
@@ -38,6 +40,7 @@
 .randomButton {
 	background-color: #c0f7b2;
 	border: 2px solid ##555555;
+	font-family: Arial, Helvetica, sans-serif;
 	border-radius: 12px;
 	color: black;
 	padding: 15px 32px;
