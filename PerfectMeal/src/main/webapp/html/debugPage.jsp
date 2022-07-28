@@ -3,20 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
 	<!-- CSS style for Navigation and Header Starts -->
-	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<jsp:include page="/includeFiles/incluedCSSFile.jsp" />
 	<!-- CSS style for Navigation and Header End -->
 	<title>Error</title>
 </head>
 <body>
+      	
 <!--Navigation and Header Starts -->
-        <jsp:include page="/includeFiles/inludeJSPFile.jsp" />
-<!--Navigation and Header End -->
+<jsp:include page="/includeFiles/newNavBar.jsp" />
+	<div id="wrapper">
+	
+		<jsp:include page="/includeFiles/header.jsp" />
+		<!--Navigation and Header END-->
 <% 
 	String errorMessage = (String) session.getAttribute("errorMessage");
 %>
 	<p><%=errorMessage%></p>
-
+	</div>
 </body>
 </html>

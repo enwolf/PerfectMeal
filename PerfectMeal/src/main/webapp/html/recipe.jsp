@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/f03a9c5f2e.js" crossorigin="anonymous"></script>
 	<meta charset="ISO-8859-1">
 	<!-- CSS style for Navigation and Header Starts -->
-	<jsp:include page="/html/incluedCSSFile.jsp" />
+	<jsp:include page="/includeFiles/incluedCSSFile.jsp" />
 	<!-- CSS style for Navigation and Header End -->
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">    
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -21,6 +21,8 @@
 <style>
       table, th, td {
       	border-collapse: collapse;
+      	font-family: Arial, Helvetica, sans-serif;
+      	
           
       }
       td {
@@ -38,6 +40,7 @@
 .randomButton {
 	background-color: #c0f7b2;
 	border: 2px solid ##555555;
+	font-family: Arial, Helvetica, sans-serif;
 	border-radius: 12px;
 	color: black;
 	padding: 15px 32px;
@@ -68,7 +71,7 @@ div.randomizeButton {
 .even{background-color:rgb(122, 210, 126)}
 
     </style>
-<title>Recipe Page</title>
+<title>Recipe</title>
 </head>
 <body>
 <!--Navigation and Header Starts -->
