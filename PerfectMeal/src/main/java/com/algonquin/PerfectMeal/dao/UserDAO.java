@@ -128,6 +128,8 @@ public class UserDAO {
 	}
 
 	public int validateUser(String validationCode) throws ClassNotFoundException {
+		// updates user in database to "isVerified", if the code that is checked is
+		// accepted.
 		int rowsAffected = 0;
 		try {
 

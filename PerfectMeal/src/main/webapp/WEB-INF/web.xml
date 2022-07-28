@@ -10,8 +10,6 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
-  
-  
   <servlet>
   	<servlet-name>RegisterUserServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.RegisterUserServlet</servlet-class>
@@ -62,7 +60,6 @@
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>  
 
-  
   <servlet>
   	<servlet-name>LogoutServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.LogoutServlet</servlet-class>
@@ -72,7 +69,6 @@
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/logout</url-pattern>
   </servlet-mapping> 
-  
   
   <servlet>
   	<servlet-name>UserProfileServlet</servlet-name>
@@ -84,7 +80,7 @@
   	<url-pattern>/userProfile</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
   	<servlet-name>UpdateUserProfileServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.UpdateUserProfileServlet</servlet-class>
   </servlet>
@@ -94,8 +90,7 @@
   	<url-pattern>/update</url-pattern>
   </servlet-mapping>
   
-  
-<servlet>
+  <servlet>
   	<servlet-name>DeleteUserServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.DeleteUserServlet</servlet-class>
   </servlet>
@@ -105,21 +100,28 @@
   	<url-pattern>/delete</url-pattern>
   </servlet-mapping>  
 
-<servlet>
+  <servlet>
   	<servlet-name>RecipeServlet</servlet-name>
   	<servlet-class>com.algonquin.PerfectMeal.servlets.RecipeServlet</servlet-class>
   </servlet>
-  
+
   <servlet-mapping>
   	<servlet-name>RecipeServlet</servlet-name>
   	<url-pattern>/recipes</url-pattern>
-  </servlet-mapping>  
+  </servlet-mapping>
+    
+  <session-config>
+  	<session-timeout>10</session-timeout>
+  </session-config>
   
+  <filter>
+  	<filter-name>AuthenticationFilter</filter-name>
+  	<filter-class>com.algonquin.PerfectMeal.filters.AuthenticationFilter</filter-class>
+  </filter>
   
-  
-  
-  
-  
-
+  <filter-mapping>
+  	<filter-name>AuthenticationFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
 </web-app>
