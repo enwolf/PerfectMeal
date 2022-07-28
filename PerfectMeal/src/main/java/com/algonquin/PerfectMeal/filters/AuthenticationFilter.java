@@ -26,12 +26,13 @@ public class AuthenticationFilter implements Filter {
 
 			if (session.getAttribute("loginEmail") == null) {
 				request.getRequestDispatcher("/index.jsp").forward(request, response);
+				return;
 			}
+
 		}
 
 		// do the filter and push to the next filter for filter chaining
+		// TODO: Validate if 2nd filter is being hit even when having "return" above
 		arg2.doFilter(request, response);
-
 	}
-
 }
