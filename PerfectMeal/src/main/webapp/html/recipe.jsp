@@ -19,23 +19,38 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 <meta charset="utf-8" />
 <style>
-      table, th, td {
-      	border-collapse: collapse;
-      	font-family: Arial, Helvetica, sans-serif;
-      	
-          
-      }
-      td {
-        height: 80px;
-        width: 160px;
-        text-align: center;
-        vertical-align: middle;
-      }
+
+
+table, th, td {
+
+	border-collapse: collapse;
+	font-family: Arial, Helvetica, sans-serif;
+	 
+}
       
-#recipe {  	
-				margin-left: auto;
-  				margin-right: auto;
- }
+table{
+      
+	width: 100%;
+	 
+}
+      
+
+th{  
+	padding: 20px;	
+}
+
+d{
+    height: 80px;
+s    width: 160px;
+    text-align: center;
+    vertical-align: middle;
+}
+      
+#recipe {
+	
+	margin-left: auto;
+	margin-right: auto;
+}
       
 .randomButton {
 	background-color: #c0f7b2;
@@ -60,6 +75,7 @@
 }
 
 div.recipeTable {
+
 	text-align: center;
 }
 

@@ -2,7 +2,10 @@
 
 
 body{
-    background-color: lightYellow;
+        background-image: url("../img/testBackgroundPerfectMeal.jpg");
+      	background-repeat: no-repeat;
+  		background-attachment: fixed;
+
 }
 
 #wrapper{
@@ -10,13 +13,15 @@ body{
     margin: auto;
     max-width: 1500px;
     background-color:lightYellow;
+	border-left: 30px solid rgba(255,255,224, .1);
+	border-right: 30px solid rgba(255,255,224, .1);
 }
 
 
 
 #welcomeCard  {
        
-    background:#c0f7b2;    
+    background:rgba(192, 247, 178);    
     float:left;   
     
 }
@@ -29,6 +34,7 @@ body{
     border-radius: 0px 25px 25px 0px;
     padding:20px;
     width: 75%;
+    margin-bottom:30px;
 }
 
 
@@ -56,13 +62,14 @@ body{
     padding-top: 3%;
     padding-bottom: 6%;
     font-family: Arial, Helvetica, sans-serif;
+    
 
 }
 
 
 #newUserCard {
     
- position: relative;
+ 	position: relative;
     /* width controls size of this box*/
     width: 18%;
     padding: 10px;
@@ -158,12 +165,12 @@ body{
 #contentCard {
        
     clear: both;   
-    position:relative;
-    top: 50px;
+
     background: #c0f7b2;
     border-radius: 25px 25px 0px 0px;
     padding:20px;
     text-align:center;
+    margin-bottom:30px;
 
        
 }

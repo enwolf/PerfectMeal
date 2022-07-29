@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
 body{
-    background-color: lightYellow;
+         background-image: url("../img/testBackgroundPerfectMeal.jpg");
+      	background-repeat: no-repeat;
+  		background-attachment: fixed;
+
+
 }
 
 #wrapper{
@@ -9,5 +13,10 @@ body{
     margin: auto;
     max-width: 1500px;
     background-color:lightYellow;
+    border-right:30px solid lightYellow;
+    border-left:30px solid lightYellow;
+    padding-bottom:20px;
+    
+    
 }
 
